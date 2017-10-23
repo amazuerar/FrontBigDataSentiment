@@ -1,0 +1,65 @@
+<div class="jumbotron jumbotron-fluid" style="padding-top: 15px; padding-bottom: 15px; margin-bottom: 10px">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-10">
+        <h3 class="display-4">NoSQL y análisis de contenido</h3>
+        <p class="lead">Análisis de una fuente de datos escalable, con contenido textual. </p>
+        <span class="text-muted">Grupo 10: Diego Fernando Escobar Trujillo - Lucy Jacquelin Morales Diaz - Alejandro Mazuera Rozo</span>
+      </div>
+      <div class="col-xl-2">
+        <img src="assets\twitter.png" style="width: 100%;height: auto;">
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<div class="container-fluid">
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input type="text" class="form-control" placeholder="Consulta" [(ngModel)]="start">
+    </div>
+    <div class="form-group col-md-3">
+      <button (click)="filter()" class="form-control btn" style="background-color:#00aced; color:white;">Consultar</button>
+    </div>
+    <div class="form-group col-md-3">
+      <button (click)="clean()" class="form-control btn" style="background-color:#00aced; color:white;">Limpiar</button>
+    </div>
+
+
+  </div>
+
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#sentimiento" role="tab" aria-controls="home" aria-selected="true">Sentimientos</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#topics" role="tab" aria-controls="profile" aria-selected="false">Topics</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#tagCloud" role="tab" aria-controls="contact" aria-selected="false">tag Cloud</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#timeline" role="tab" aria-controls="contact" aria-selected="false">Timeline</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#afinidad" role="tab" aria-controls="contact" aria-selected="false">Afinidad</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#tweets" role="tab" aria-controls="contact" aria-selected="false">Tweets</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#mapa" role="tab" aria-controls="contact" aria-selected="false">Mapa</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="sentimiento" role="tabpanel" aria-labelledby="sentimiento-tab">Aqui va el sentimiento</div>
+    <div class="tab-pane fade" id="topics" role="tabpanel" aria-labelledby="topic-tab">Aqui van los topics</div>
+    <div class="tab-pane fade" id="tagCloud" role="tabpanel" aria-labelledby="tagCloud-tab">Aqui va la tagcloud</div>
+    <div class="tab-pane fade" id="timeline" role="tabpanel" aria-labelledby="timeline-tab">Aqui va el timeline</div>
+    <div class="tab-pane fade" id="afinidad" role="tabpanel" aria-labelledby="afinidad-tab">Aqui va la afinidad</div>
+    <div class="tab-pane fade" id="tweets" role="tabpanel" aria-labelledby="tweets-tab">Aqui van los tweets</div>
+    <div class="tab-pane fade" id="mapa" role="tabpanel" aria-labelledby="tweets-tab">Aqui va el mapa</div>
+  </div>
