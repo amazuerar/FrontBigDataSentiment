@@ -1,13 +1,13 @@
 <div class="jumbotron jumbotron-fluid" style="padding-top: 15px; padding-bottom: 15px; margin-bottom: 10px">
   <div class="container">
     <div class="row">
-      <div class="col-xl-10">
+      <div class="col-xs-10 col-md-10">
         <h3 class="display-4">NoSQL y análisis de contenido</h3>
         <p class="lead">Análisis de una fuente de datos escalable, con contenido textual. </p>
         <span class="text-muted">Grupo 10: Diego Fernando Escobar Trujillo - Lucy Jacquelin Morales Diaz - Alejandro Mazuera Rozo</span>
       </div>
-      <div class="col-xl-2">
-        <img src="assets\twitter.png" style="width: 100%;height: auto;">
+      <div class="col-xs-2 col-md-2">
+        <img src="assets\twitter.png" style="width: 100%;height: sauto;">
       </div>
 
     </div>
@@ -17,6 +17,7 @@
 
 <div class="container-fluid">
 
+  <!--
   <div class="form-row">
     <div class="form-group col-md-6">
       <input type="text" class="form-control" placeholder="Consulta" [(ngModel)]="start">
@@ -27,39 +28,253 @@
     <div class="form-group col-md-3">
       <button (click)="clean()" class="form-control btn" style="background-color:#00aced; color:white;">Limpiar</button>
     </div>
+  </div>
+  -->
+
+
+
+</div>
+
+
+
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#dashboard" role="tab" aria-controls="home" aria-selected="true">Dashboard</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#historico" role="tab" aria-controls="profile" aria-selected="false">Histórico</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#tagCloud" role="tab" aria-controls="contact" aria-selected="false">tag Cloud</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#timeline" role="tab" aria-controls="contact" aria-selected="false">Timeline</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#afinidad" role="tab" aria-controls="contact" aria-selected="false">Afinidad</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#tweets" role="tab" aria-controls="contact" aria-selected="false">Tweets</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#mapa" role="tab" aria-controls="contact" aria-selected="false">Mapa</a>
+  </li>
+</ul>
+
+<div class="tab-content" id="myTabContent">
+
+  <div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+
+    <div class="container-fluid" style="margin-top: 20px;">
+      <div class="row">
+        <div class="col-sm">
+          <img src="assets\@A_OrdonezM.jpg" class="circle" data-toggle="tooltip" data-placement="top" title="@A_OrdonezM">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@AlvaroUribeVel.jpeg" class="circle">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@AndresPastrana_.jpg" class="circle">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@BluRadioCo.jpg" class="circle">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@CaracolRadio.jpg" class="circle">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@CGurisattiNTN24.jpg" class="circle">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@ClaudiaLopez.jpg" class="circle">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@DanielSamperO.jpg" class="circle">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@DeLaCalleHum.jpg" class="circle">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@elespectador.jpg" class="circle">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@ELTIEMPO.jpg" class="circle">
+        </div>
+      </div>
+      <div class="row" style="margin-top: 15px;">
+        <div class="col-sm">
+          <img src="assets\@FARC_EPaz.jpg" class="circle">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@German_Vargas.jpg" class="circle">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@IvanDuque.jpg" class="circle">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@JSantrich_FARC.jpg" class="circle">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@JuanManSantos.jpg" class="circle">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@mluciaramirez.jpg" class="circle">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@NoticiasCaracol.jpg" class="circle">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@NoticiasRCN.jpg" class="circle">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@OIZuluaga.png" class="circle">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@petrogustavo.jpg" class="circle">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@TimoFARC.jpg" class="circle">
+        </div>
+      </div>
+      <div class="row" style="margin-top: 20px;">
+        <div class="col col-3">
+          <ngx-charts-advanced-pie-chart [view]="viewAdvancedPie" [scheme]="colorSchemeAdvancedPie" [results]="singleAdvancedPie" [gradient]="gradientAdvancedPie"
+            [tooltipDisabled]="tooltipAdvancedPie">
+          </ngx-charts-advanced-pie-chart>
+        </div>
+        <div class="col col-8" style="margin-left: 100px;">
+          <ngx-charts-line-chart [view]="viewLineChart" [scheme]="colorSchemeLineChart" [results]="multiLineChart" [gradient]="gradientLineChart"
+            [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegendLineChart" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel"
+            [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [autoScale]="autoScale" [tooltipDisabled]=true>
+          </ngx-charts-line-chart>
+        </div>
+      </div>
+
+    </div>
+
+
+
 
 
   </div>
 
-  <ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#sentimiento" role="tab" aria-controls="home" aria-selected="true">Sentimientos</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#topics" role="tab" aria-controls="profile" aria-selected="false">Topics</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#tagCloud" role="tab" aria-controls="contact" aria-selected="false">tag Cloud</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#timeline" role="tab" aria-controls="contact" aria-selected="false">Timeline</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#afinidad" role="tab" aria-controls="contact" aria-selected="false">Afinidad</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#tweets" role="tab" aria-controls="contact" aria-selected="false">Tweets</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#mapa" role="tab" aria-controls="contact" aria-selected="false">Mapa</a>
-    </li>
-  </ul>
-  <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="sentimiento" role="tabpanel" aria-labelledby="sentimiento-tab">Aqui va el sentimiento</div>
-    <div class="tab-pane fade" id="topics" role="tabpanel" aria-labelledby="topic-tab">Aqui van los topics</div>
-    <div class="tab-pane fade" id="tagCloud" role="tabpanel" aria-labelledby="tagCloud-tab">Aqui va la tagcloud</div>
-    <div class="tab-pane fade" id="timeline" role="tabpanel" aria-labelledby="timeline-tab">Aqui va el timeline</div>
-    <div class="tab-pane fade" id="afinidad" role="tabpanel" aria-labelledby="afinidad-tab">Aqui va la afinidad</div>
-    <div class="tab-pane fade" id="tweets" role="tabpanel" aria-labelledby="tweets-tab">Aqui van los tweets</div>
-    <div class="tab-pane fade" id="mapa" role="tabpanel" aria-labelledby="tweets-tab">Aqui va el mapa</div>
+  <div class="tab-pane fade" id="historico" role="tabpanel" aria-labelledby="topic-tab">
+    <div class="container-fluid cont" style="margin-top: 50px;">
+
+      <div class="row">
+        <div class="col col-lg-3">
+
+          <div class="row">
+            <div class="col-sm" (click)="onImageFollowerClick('A_OrdonezM')">
+              <img src="assets\@A_OrdonezM.jpg" class="circleRow" >
+            </div>
+            <div class="col-sm" (click)="onImageFollowerClick('AlvaroUribeVel')">
+              <img src="assets\@AlvaroUribeVel.jpeg" class="circleRow">
+            </div>
+            <div class="col-sm" (click)="onImageFollowerClick('AndresPastrana_')">
+              <img src="assets\@AndresPastrana_.jpg" class="circleRow">
+            </div>
+            <div class="col-sm" (click)="onImageFollowerClick('BluRadioCo')">
+              <img src="assets\@BluRadioCo.jpg" class="circleRow">
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 10px;">
+            <div class="col-sm" (click)="onImageFollowerClick('CaracolRadio')">
+              <img src="assets\@CaracolRadio.jpg" class="circleRow">
+            </div>
+            <div class="col-sm" (click)="onImageFollowerClick('CGurisattiNTN24')">
+              <img src="assets\@CGurisattiNTN24.jpg" class="circleRow">
+            </div>
+            <div class="col-sm" (click)="onImageFollowerClick('ClaudiaLopez')">
+              <img src="assets\@ClaudiaLopez.jpg" class="circleRow">
+            </div>
+            <div class="col-sm" (click)="onImageFollowerClick('DanielSamperO')">
+              <img src="assets\@DanielSamperO.jpg" class="circleRow">
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 10px;">
+            <div class="col-sm" (click)="onImageFollowerClick('DeLaCalleHum')">
+              <img src="assets\@DeLaCalleHum.jpg" class="circleRow">
+            </div>
+            <div class="col-sm" (click)="onImageFollowerClick('elespectador')">
+              <img src="assets\@elespectador.jpg" class="circleRow">
+            </div>
+            <div class="col-sm" (click)="onImageFollowerClick('ELTIEMPO')">
+              <img src="assets\@ELTIEMPO.jpg" class="circleRow">
+            </div>
+            <div class="col-sm" (click)="onImageFollowerClick('FARC_EPaz')">
+              <img src="assets\@FARC_EPaz.jpg" class="circleRow">
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 10px;">
+            <div class="col-sm" (click)="onImageFollowerClick('German_Vargas')">
+              <img src="assets\@German_Vargas.jpg" class="circleRow">
+            </div>
+            <div class="col-sm" (click)="onImageFollowerClick('IvanDuque')">
+              <img src="assets\@IvanDuque.jpg" class="circleRow">
+            </div>
+            <div class="col-sm" (click)="onImageFollowerClick('JSantrich_FARC')">
+              <img src="assets\@JSantrich_FARC.jpg" class="circleRow">
+            </div>
+            <div class="col-sm" (click)="onImageFollowerClick('JuanManSantos')">
+              <img src="assets\@JuanManSantos.jpg" class="circleRow">
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 10px;">
+            <div class="col-sm" (click)="onImageFollowerClick('mluciaramirez')">
+              <img src="assets\@mluciaramirez.jpg" class="circleRow">
+            </div>
+            <div class="col-sm" (click)="onImageFollowerClick('NoticiasCaracol')">
+              <img src="assets\@NoticiasCaracol.jpg" class="circleRow">
+            </div>
+            <div class="col-sm" (click)="onImageFollowerClick('NoticiasRCN')">
+              <img src="assets\@NoticiasRCN.jpg" class="circleRow">
+            </div>
+            <div class="col-sm" (click)="onImageFollowerClick('OIZuluaga')">
+              <img src="assets\@OIZuluaga.png" class="circleRow">
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 10px;">
+            <div class="col-sm" (click)="onImageFollowerClick('petrogustavo')">
+              <img src="assets\@petrogustavo.jpg" class="circleRow">
+            </div>
+            <div class="col-sm" (click)="onImageFollowerClick('TimoFARC')">
+              <img src="assets\@TimoFARC.jpg" class="circleRow">
+            </div>
+            <div class="col-sm">
+              <img src="assets\null.jpg" class="circleRow">
+            </div>
+            <div class="col-sm">
+              <img src="assets\null.jpg" class="circleRow">
+            </div>
+          </div>
+
+        </div>
+        <div class="col col-lg-8">
+           <ngx-charts-line-chart [view]="viewLineChartFollowers" [scheme]="colorSchemeLineChartFollowers" [results]="multiLineChartFollowers " [gradient]="gradientFollowers"
+            [xAxis]="showXAxisFollowers" [yAxis]="showYAxisFollowers" [legend]="showLegendLineChartFollowers" [showXAxisLabel]="showXAxisLabelFollowers" [showYAxisLabel]="showYAxisLabelFollowers"
+            [xAxisLabel]="xAxisLabelFollowers" [timeline]="true" [yAxisLabel]="yAxisLabelFollowers" [autoScale]="autoScaleFollowers" [tooltipDisabled]=true>
+          </ngx-charts-line-chart>
+        </div>
+      </div>
+
+    </div>
   </div>
+
+
+  <div class="tab-pane fade" id="tagCloud" role="tabpanel" aria-labelledby="tagCloud-tab">Aqui va la tagcloud</div>
+  <div class="tab-pane fade" id="timeline" role="tabpanel" aria-labelledby="timeline-tab">Aqui va el timeline</div>
+  <div class="tab-pane fade" id="afinidad" role="tabpanel" aria-labelledby="afinidad-tab">Aqui va la afinidad</div>
+  <div class="tab-pane fade" id="tweets" role="tabpanel" aria-labelledby="tweets-tab">Aqui van los tweets</div>
+  <div class="tab-pane fade" id="mapa" role="tabpanel" aria-labelledby="tweets-tab">Aqui va el mapa
+
+
+    
+  </div>
+</div>

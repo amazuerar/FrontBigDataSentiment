@@ -1,15 +1,17 @@
-.links line {
-  stroke: #000;
-  stroke-opacity: 0.6;
+
+
+.circle {
+  border-radius: 50%;	
+  width: 100px;
+  height: auto;
 }
 
-.nodes circle {
-  stroke: #fff;
-  stroke-width: 1.5px;
+.circleRow {
+  border-radius: 50%;	
+  width: 60px;
+  height: auto;
 }
 
-text {
-  font: 3px sans-serif;
-  pointer-events: none;
-  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+.cont:hover .image {
+  opacity: 0.3;
 }

@@ -12,9 +12,9 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class BackService {
 
-  address = "172.24.100.104";
-  // address = "127.0.0.1";
-  port = "8081";
+  // address = "172.24.100.104";
+  address = '127.0.0.1';
+  port = '8082';
 
   /**
    * Crea una instancia del componente servicio RssService.
@@ -23,32 +23,33 @@ export class BackService {
    */
   constructor(private http: Http) { }
 
-  getEnlaces(personaje, lugar, hecho) {
-    return this.http.get('http://' + this.address + ':' + this.port + '/ENLACES' + '/' + personaje + '/' + lugar + '/' + hecho + '/' + '/' )
+  getInfoGeneral() {
+    return this.http.get('http://' + this.address + ':' + this.port + '/general')
+      .map(res => res.json())
+      .toPromise()
+  }
+
+  getInfoGeneralDos() {
+    return this.http.get('http://' + this.address + ':' + this.port + '/generalDos')
+      .map(res => res.json())
+      .toPromise()
+  }
+
+  getFollowers(name) {
+    return this.http.get('http://' + this.address + ':' + this.port + '/followers/' + name)
       .map(res => res.json())
       .toPromise()
   }
 
 
-  getNodos(personaje, lugar, hecho) {
-    return this.http.get('http://' + this.address + ':' + this.port + '/NODOS' + '/' + personaje + '/' + lugar + '/' + hecho + '/' + '/')
+  getGeo() {
+    return this.http.get('http://' + this.address + ':' + this.port + '/geo')
       .map(res => res.json())
       .toPromise()
   }
 
 
-  getEnlacesConFechas(personaje, lugar, hecho, start, end) {
-    return this.http.get('http://' + this.address + ':' + this.port + '/ENLACESFECHAS' + '/' + personaje + '/' + lugar + '/' + hecho + '/' + start +  '/' + end )
-      .map(res => res.json())
-      .toPromise()
-  }
 
-
-  getNodosConFechas(personaje, lugar, hecho, start, end) {
-    return this.http.get('http://' + this.address + ':' + this.port + '/NODOSFECHAS' + '/' + personaje + '/' + lugar + '/' + hecho + '/' + start +  '/' + end)
-      .map(res => res.json())
-      .toPromise()
-  }
 
 
 }
