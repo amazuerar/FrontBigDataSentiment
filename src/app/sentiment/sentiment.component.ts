@@ -52,7 +52,7 @@ export class SentimentComponent implements OnInit {
 
 
   // DASHBOARD LINE CHART
-  viewLineChart: number[] = [1000, 300];
+  viewLineChart: number[] = [1100, 300];
   colorSchemeLineChart = {
     domain: ['#C7B42C', '#5AA454', '#A10A28']
   };
@@ -70,7 +70,7 @@ export class SentimentComponent implements OnInit {
   autoScale = true;
 
   // HISTORICO FOLLOWERS
-  viewLineChartFollowers: number[] = [1000, 500];
+  viewLineChartFollowers: number[] = [1200, 500];
   colorSchemeLineChartFollowers = {
     domain: ['#0000FF', '#5AA454', '#A10A28']
   };
@@ -88,7 +88,7 @@ export class SentimentComponent implements OnInit {
   autoScaleFollowers = true;
   nameFollowers = 'A_OrdonezM';
 
-  markers;
+
 
 
 
@@ -122,17 +122,6 @@ export class SentimentComponent implements OnInit {
       .then(
       (data) => { // Success
         this.multiLineChartFollowers = [...data];
-      },
-      (error) => { console.error(error); }
-      );
-
-
-
-
-    this.backservice.getGeo()
-      .then(
-      (data) => { // Success
-        this.markers = data;
       },
       (error) => { console.error(error); }
       );

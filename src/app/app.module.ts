@@ -15,7 +15,7 @@ import { HistoricoSeguidoresComponent } from './historico-seguidores/historico-s
 
 const appRoutes: Routes = [
   { path: 'Sentiment', component: SentimentComponent },
-  // { path: 'Historico', component: HistoricoSeguidoresComponent },
+  { path: 'Mapa', component: HistoricoSeguidoresComponent },
   { path: '**', component: SentimentComponent }
 ];
 
