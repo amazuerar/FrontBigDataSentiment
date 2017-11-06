@@ -139,15 +139,18 @@
       </div>
       <div class="row" style="margin-top: 20px;">
         <div class="col col-3">
-          <ngx-charts-advanced-pie-chart [view]="viewAdvancedPie" [scheme]="colorSchemeAdvancedPie" [results]="singleAdvancedPie" [gradient]="gradientAdvancedPie"
-            [tooltipDisabled]="tooltipAdvancedPie">
+          <ngx-charts-advanced-pie-chart *ngIf="singleAdvancedPie && singleAdvancedPie.length > 0" [view]="viewAdvancedPie" [scheme]="colorSchemeAdvancedPie"
+            [results]="singleAdvancedPie" [gradient]="gradientAdvancedPie" [tooltipDisabled]="false">
           </ngx-charts-advanced-pie-chart>
         </div>
         <div class="col col-8" style="margin-left: 100px;">
-          <ngx-charts-line-chart [view]="viewLineChart" [scheme]="colorSchemeLineChart" [results]="multiLineChart" [gradient]="gradientLineChart"
-            [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegendLineChart" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel"
-            [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [autoScale]="autoScale" [tooltipDisabled]=true>
+
+          <ngx-charts-line-chart *ngIf="multiLineChart && multiLineChart.length > 0" [view]="viewLineChart" [scheme]="colorSchemeLineChart"
+            [results]="multiLineChart" [gradient]="gradientLineChart" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegendLineChart"
+            [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel"
+            [autoScale]="autoScale" [tooltipDisabled]=false>
           </ngx-charts-line-chart>
+
         </div>
       </div>
 
@@ -167,7 +170,7 @@
 
           <div class="row">
             <div class="col-sm" (click)="onImageFollowerClick('A_OrdonezM')">
-              <img src="assets\@A_OrdonezM.jpg" class="circleRow" >
+              <img src="assets\@A_OrdonezM.jpg" class="circleRow">
             </div>
             <div class="col-sm" (click)="onImageFollowerClick('AlvaroUribeVel')">
               <img src="assets\@AlvaroUribeVel.jpeg" class="circleRow">
@@ -256,11 +259,18 @@
           </div>
 
         </div>
-        <div class="col col-lg-8">
-           <ngx-charts-line-chart [view]="viewLineChartFollowers" [scheme]="colorSchemeLineChartFollowers" [results]="multiLineChartFollowers " [gradient]="gradientFollowers"
-            [xAxis]="showXAxisFollowers" [yAxis]="showYAxisFollowers" [legend]="showLegendLineChartFollowers" [showXAxisLabel]="showXAxisLabelFollowers" [showYAxisLabel]="showYAxisLabelFollowers"
-            [xAxisLabel]="xAxisLabelFollowers" [timeline]="true" [yAxisLabel]="yAxisLabelFollowers" [autoScale]="autoScaleFollowers" [tooltipDisabled]=true>
-          </ngx-charts-line-chart>
+        <div class="col col-lg-8" id="divChart">
+          <div class="row" >
+           <p style="text-align: center; font-size: 25px;">Análisis de histórico de seguidores: @{{nameFollowers}}</p>
+          </div>
+          <div class="row">
+            <ngx-charts-line-chart *ngIf="multiLineChartFollowers && multiLineChartFollowers.length > 0" [view]="viewLineChartFollowers"
+              [scheme]="colorSchemeLineChartFollowers" [results]="multiLineChartFollowers " [gradient]="gradientFollowers"
+              [xAxis]="showXAxisFollowers" [yAxis]="showYAxisFollowers" [legend]="showLegendLineChartFollowers" [showXAxisLabel]="showXAxisLabelFollowers"
+              [showYAxisLabel]="showYAxisLabelFollowers" [xAxisLabel]="xAxisLabelFollowers" [timeline]="true" [yAxisLabel]="yAxisLabelFollowers"
+              [autoScale]="autoScaleFollowers" [tooltipDisabled]=false>
+            </ngx-charts-line-chart>
+          </div>
         </div>
       </div>
 
@@ -275,6 +285,6 @@
   <div class="tab-pane fade" id="mapa" role="tabpanel" aria-labelledby="tweets-tab">Aqui va el mapa
 
 
-    
+
   </div>
 </div>

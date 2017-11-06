@@ -59,11 +59,10 @@ export class SentimentComponent implements OnInit {
   multiLineChart: any[];
   multiLineChartDos: any[];
   gradientLineChart = true;
-  showLegendLineChart = true;
+  showLegendLineChart = false;
   showXAxis = true;
   showYAxis = true;
   gradient = false;
-  showLegend = true;
   showXAxisLabel = true;
   xAxisLabel = 'Fechas';
   showYAxisLabel = true;
@@ -71,30 +70,30 @@ export class SentimentComponent implements OnInit {
   autoScale = true;
 
   // HISTORICO FOLLOWERS
-  viewLineChartFollowers: number[] = [1000, 300];
+  viewLineChartFollowers: number[] = [1000, 500];
   colorSchemeLineChartFollowers = {
-    domain: ['#C7B42C', '#5AA454', '#A10A28']
+    domain: ['#0000FF', '#5AA454', '#A10A28']
   };
   multiLineChartFollowers: any[];
   gradientLineChartFollowers = true;
-  showLegendLineChartFollowers = true;
+  showLegendLineChartFollowers = false;
   showXAxisFollowers = true;
   showYAxisFollowers = true;
   gradientFollowers = false;
   showLegendFollowers = true;
-  showXAxisLabelFollowers = false;
+  showXAxisLabelFollowers = true;
   xAxisLabelFollowers = 'Fechas';
-  showYAxisLabelFollowers = false;
-  yAxisLabelFollowers = 'Número de Segidores';
+  showYAxisLabelFollowers = true;
+  yAxisLabelFollowers = 'Número de Seguidores';
   autoScaleFollowers = true;
-  nameFollowers = 'CGurisattiNTN24';
+  nameFollowers = 'A_OrdonezM';
 
   markers;
 
 
 
 
-  constructor(private backservice: BackService, private fb: FormBuilder, private ngZone: NgZone) {
+  constructor(private elementRef: ElementRef, private backservice: BackService, private fb: FormBuilder, private ngZone: NgZone) {
   }
   onSelect(event) {
     console.log(event);
@@ -146,7 +145,6 @@ export class SentimentComponent implements OnInit {
     this.backservice.getFollowers(this.nameFollowers)
       .then(
       (data) => { // Success
-
         this.multiLineChartFollowers = [...data];
       },
       (error) => { console.error(error); }
