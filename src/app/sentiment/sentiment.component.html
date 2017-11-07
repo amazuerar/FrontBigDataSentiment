@@ -263,8 +263,8 @@
 
         </div>
         <div class="col col-lg-8">
-          <div class="row" >
-           <p style="text-align: center; font-size: 25px;">Análisis de histórico de seguidores: @{{nameFollowers}}</p>
+          <div class="row">
+            <p style="text-align: center; font-size: 25px;">Análisis de histórico de seguidores: @{{nameFollowers}}</p>
           </div>
           <div class="row">
             <ngx-charts-line-chart *ngIf="multiLineChartFollowers && multiLineChartFollowers.length > 0" [view]="viewLineChartFollowers"
@@ -276,6 +276,13 @@
           </div>
         </div>
       </div>
+      <!--
+      <ngx-charts-line-chart *ngIf="multiLineChartFollowersAll && multiLineChartFollowersAll.length > 0" [view]="viewLineChartFollowersAll"
+              [scheme]="colorSchemeLineChartFollowersAll" [results]="multiLineChartFollowersAll" [gradient]="gradientFollowersAll"
+              [xAxis]="showXAxisFollowersAll" [yAxis]="showYAxisFollowersAll" [legend]="showLegendLineChartFollowersAll" [showXAxisLabel]="showXAxisLabelFollowersAll"
+              [showYAxisLabel]="showYAxisLabelFollowersAll" [xAxisLabel]="xAxisLabelFollowersAll" [timeline]="true" [yAxisLabel]="yAxisLabelFollowersAll"
+              [autoScale]="autoScaleFollowersAll" [timeline]=true [tooltipDisabled]=false> 
+            </ngx-charts-line-chart>-->
 
     </div>
   </div>
@@ -289,85 +296,85 @@
         <div class="col col-lg-3">
 
           <div class="row">
-            <div class="col-sm" (click)="onImageFollowerClick('A_OrdonezM')">
+            <div class="col-sm" (click)="onImageGetTweetsClick('A_OrdonezM')">
               <img src="assets\@A_OrdonezM.jpg" class="circleRow">
             </div>
-            <div class="col-sm" (click)="onImageFollowerClick('AlvaroUribeVel')">
+            <div class="col-sm" (click)="onImageGetTweetsClick('AlvaroUribeVel')">
               <img src="assets\@AlvaroUribeVel.jpeg" class="circleRow">
             </div>
-            <div class="col-sm" (click)="onImageFollowerClick('AndresPastrana_')">
+            <div class="col-sm" (click)="onImageGetTweetsClick('AndresPastrana_')">
               <img src="assets\@AndresPastrana_.jpg" class="circleRow">
             </div>
-            <div class="col-sm" (click)="onImageFollowerClick('BluRadioCo')">
+            <div class="col-sm" (click)="onImageGetTweetsClick('BluRadioCo')">
               <img src="assets\@BluRadioCo.jpg" class="circleRow">
             </div>
           </div>
 
           <div class="row" style="margin-top: 10px;">
-            <div class="col-sm" (click)="onImageFollowerClick('CaracolRadio')">
+            <div class="col-sm" (click)="onImageGetTweetsClick('CaracolRadio')">
               <img src="assets\@CaracolRadio.jpg" class="circleRow">
             </div>
-            <div class="col-sm" (click)="onImageFollowerClick('CGurisattiNTN24')">
+            <div class="col-sm" (click)="onImageGetTweetsClick('CGurisattiNTN24')">
               <img src="assets\@CGurisattiNTN24.jpg" class="circleRow">
             </div>
-            <div class="col-sm" (click)="onImageFollowerClick('ClaudiaLopez')">
+            <div class="col-sm" (click)="onImageGetTweetsClick('ClaudiaLopez')">
               <img src="assets\@ClaudiaLopez.jpg" class="circleRow">
             </div>
-            <div class="col-sm" (click)="onImageFollowerClick('DanielSamperO')">
+            <div class="col-sm" (click)="onImageGetTweetsClick('DanielSamperO')">
               <img src="assets\@DanielSamperO.jpg" class="circleRow">
             </div>
           </div>
 
           <div class="row" style="margin-top: 10px;">
-            <div class="col-sm" (click)="onImageFollowerClick('DeLaCalleHum')">
+            <div class="col-sm" (click)="onImageGetTweetsClick('DeLaCalleHum')">
               <img src="assets\@DeLaCalleHum.jpg" class="circleRow">
             </div>
-            <div class="col-sm" (click)="onImageFollowerClick('elespectador')">
+            <div class="col-sm" (click)="onImageGetTweetsClick('elespectador')">
               <img src="assets\@elespectador.jpg" class="circleRow">
             </div>
-            <div class="col-sm" (click)="onImageFollowerClick('ELTIEMPO')">
+            <div class="col-sm" (click)="onImageGetTweetsClick('ELTIEMPO')">
               <img src="assets\@ELTIEMPO.jpg" class="circleRow">
             </div>
-            <div class="col-sm" (click)="onImageFollowerClick('FARC_EPaz')">
+            <div class="col-sm" (click)="onImageGetTweetsClick('FARC_EPaz')">
               <img src="assets\@FARC_EPaz.jpg" class="circleRow">
             </div>
           </div>
 
           <div class="row" style="margin-top: 10px;">
-            <div class="col-sm" (click)="onImageFollowerClick('German_Vargas')">
+            <div class="col-sm" (click)="onImageGetTweetsClick('German_Vargas')">
               <img src="assets\@German_Vargas.jpg" class="circleRow">
             </div>
-            <div class="col-sm" (click)="onImageFollowerClick('IvanDuque')">
+            <div class="col-sm" (click)="onImageGetTweetsClick('IvanDuque')">
               <img src="assets\@IvanDuque.jpg" class="circleRow">
             </div>
-            <div class="col-sm" (click)="onImageFollowerClick('JSantrich_FARC')">
+            <div class="col-sm" (click)="onImageGetTweetsClick('JSantrich_FARC')">
               <img src="assets\@JSantrich_FARC.jpg" class="circleRow">
             </div>
-            <div class="col-sm" (click)="onImageFollowerClick('JuanManSantos')">
+            <div class="col-sm" (click)="onImageGetTweetsClick('JuanManSantos')">
               <img src="assets\@JuanManSantos.jpg" class="circleRow">
             </div>
           </div>
 
           <div class="row" style="margin-top: 10px;">
-            <div class="col-sm" (click)="onImageFollowerClick('mluciaramirez')">
+            <div class="col-sm" (click)="onImageGetTweetsClick('mluciaramirez')">
               <img src="assets\@mluciaramirez.jpg" class="circleRow">
             </div>
-            <div class="col-sm" (click)="onImageFollowerClick('NoticiasCaracol')">
+            <div class="col-sm" (click)="onImageGetTweetsClick('NoticiasCaracol')">
               <img src="assets\@NoticiasCaracol.jpg" class="circleRow">
             </div>
-            <div class="col-sm" (click)="onImageFollowerClick('NoticiasRCN')">
+            <div class="col-sm" (click)="onImageGetTweetsClick('NoticiasRCN')">
               <img src="assets\@NoticiasRCN.jpg" class="circleRow">
             </div>
-            <div class="col-sm" (click)="onImageFollowerClick('OIZuluaga')">
+            <div class="col-sm" (click)="onImageGetTweetsClick('OIZuluaga')">
               <img src="assets\@OIZuluaga.png" class="circleRow">
             </div>
           </div>
 
           <div class="row" style="margin-top: 10px;">
-            <div class="col-sm" (click)="onImageFollowerClick('petrogustavo')">
+            <div class="col-sm" (click)="onImageGetTweetsClick('petrogustavo')">
               <img src="assets\@petrogustavo.jpg" class="circleRow">
             </div>
-            <div class="col-sm" (click)="onImageFollowerClick('TimoFARC')">
+            <div class="col-sm" (click)="onImageGetTweetsClick('TimoFARC')">
               <img src="assets\@TimoFARC.jpg" class="circleRow">
             </div>
             <div class="col-sm">
@@ -379,20 +386,66 @@
           </div>
 
         </div>
-        <div class="col col-lg-8">
-          <div class="row" >
-           <p style="text-align: center; font-size: 25px;">Índices de matoneo: @{{nameFollowers}}</p>
+
+        <div class="col col-lg-4">
+          <div style="height: 350px; overflow: auto">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th class="col col-3">Texto</th>
+                  <th class="col col-2">Respuestas</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let tweet of tweetsByAccount;">
+                  <td class="col col-3">{{tweet.text}}</td>
+                  <td class="col col-1">
+                    <button type="button" class="btn btn-primary" (click)="onClickButtonLastTweets(tweet._id)">Replay</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+        </div>
+
+        <div class="col col-lg-5">
           <div class="row">
-            <ngx-charts-line-chart *ngIf="multiLineChartFollowers && multiLineChartFollowers.length > 0" [view]="viewLineChartFollowers"
-              [scheme]="colorSchemeLineChartFollowers" [results]="multiLineChartFollowers " [gradient]="gradientFollowers"
-              [xAxis]="showXAxisFollowers" [yAxis]="showYAxisFollowers" [legend]="showLegendLineChartFollowers" [showXAxisLabel]="showXAxisLabelFollowers"
-              [showYAxisLabel]="showYAxisLabelFollowers" [xAxisLabel]="xAxisLabelFollowers" [timeline]="true" [yAxisLabel]="yAxisLabelFollowers"
-              [autoScale]="autoScaleFollowers" [timeline]=true [tooltipDisabled]=false>
-            </ngx-charts-line-chart>
+            <div style="height: 350px; overflow: auto">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th class="col col-3">Texto</th>
+                    <th class="col col-3">Usuario</th>
+                    <th class="col col-2">Apoyo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let tweet of replayTweetsByID;">
+                    <td class="col col-3">{{tweet.text}}</td>
+                    <td class="col col-3">{{tweet.screen_name}}</td>
+                    <td class="col col-1">
+                      <img [src]="url(tweet.sentiment)" style="width: 60px;height: auto;">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
+
+      <div class="row">
+        <div style="margin: 0 auto;">
+          <ngx-charts-gauge [scheme]="colorSchemeGauge" [results]="dataGauge" [min]="0" [max]="100" [angleSpan]="240" [startAngle]="-120"
+            [units]="'Tweets'" [bigSegments]="10" [smallSegments]="5">
+          </ngx-charts-gauge>
+        </div>
+
+        <ngx-charts-advanced-pie-chart *ngIf="singleAdvancedPie && singleAdvancedPie.length > 0" [view]="viewAdvancedPie" [scheme]="colorSchemeAdvancedPie"
+            [results]="singleAdvancedPie" [gradient]="gradientAdvancedPie" [tooltipDisabled]="false">
+          </ngx-charts-advanced-pie-chart>
+      </div>
+
 
     </div>
 
@@ -401,9 +454,9 @@
 
 
   </div>
- 
- 
- 
+
+
+
   <div class="tab-pane fade" id="timeline" role="tabpanel" aria-labelledby="timeline-tab">Aqui va el timeline</div>
   <div class="tab-pane fade" id="afinidad" role="tabpanel" aria-labelledby="afinidad-tab">Aqui va la afinidad</div>
   <div class="tab-pane fade" id="tweets" role="tabpanel" aria-labelledby="tweets-tab">Aqui van los tweets</div>

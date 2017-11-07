@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { BackService } from '../provider/back.service';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { } from 'googlemaps';
-import { MapsAPILoader } from '@agm/core';
+import { } from '@types/googlemaps';
+import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 
-declare var google: any;
+declare var google;
 
 @Component({
   selector: 'app-historico-seguidores',
@@ -20,7 +20,7 @@ export class HistoricoSeguidoresComponent implements OnInit {
   markers;
 
 
-  constructor(private backservice: BackService) { }
+  constructor(private mapsAPILoader: MapsAPILoader, private backservice: BackService) { }
 
 
 
@@ -35,7 +35,7 @@ export class HistoricoSeguidoresComponent implements OnInit {
       (error) => { console.error(error); }
       );
 
-      this.coordinates('miami');
+    this.coordinates('miami');
   }
 
   url(url) {
@@ -43,13 +43,17 @@ export class HistoricoSeguidoresComponent implements OnInit {
   }
 
   coordinates(url) {
-    const geocoder = new google.maps.Geocoder();
-    geocoder.geocode({ 'address': url }, function (results, status) {
-      if (status === google.maps.GeocoderStatus.OK) {
-        alert('location : ' + results[0].geometry.location.lat() + ' ' + results[0].geometry.location.lng());
-      } else {
-        alert('Something got wrong ' + status);
-      }
+
+    this.mapsAPILoader.load().then(() => {
+      console.log('google script loaded');
+      const geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ 'address': url }, function (results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+          // alert('location : ' + results[0].geometry.location.lat() + ' ' + results[0].geometry.location.lng());
+        } else {
+          // alert('Something got wrong ' + status);
+        }
+      });
     });
   }
 

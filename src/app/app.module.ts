@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AgmCoreModule } from '@agm/core';
 import { HistoricoSeguidoresComponent } from './historico-seguidores/historico-seguidores.component';
+import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 
 const appRoutes: Routes = [
   { path: 'Sentiment', component: SentimentComponent },
@@ -26,13 +27,15 @@ const appRoutes: Routes = [
     HistoricoSeguidoresComponent
   ],
   imports: [
+    AgmJsMarkerClustererModule,
     BrowserModule,
     CommonModule,
     BrowserAnimationsModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBsJOWygW3OFgqXe5O7q8yWuuDltI_bsLk'
+      apiKey: 'AIzaSyBsJOWygW3OFgqXe5O7q8yWuuDltI_bsLk',
+      libraries: ['places']
     }),
     HttpModule,
     NgxChartsModule,

@@ -89,6 +89,34 @@ export class SentimentComponent implements OnInit {
   nameFollowers = 'A_OrdonezM';
 
 
+  // HISTORICO FOLLOWERS ALL
+  viewLineChartFollowersAll: number[] = [1200, 500];
+  colorSchemeLineChartFollowersAll = {
+    domain: ['#0000FF', '#5AA454', '#A10A28']
+  };
+  multiLineChartFollowersAll: any[];
+  gradientLineChartFollowersAll = true;
+  showLegendLineChartFollowersAll = true;
+  showXAxisFollowersAll = true;
+  showYAxisFollowersAll = true;
+  gradientFollowersAll = false;
+  showLegendFollowersAll = true;
+  showXAxisLabelFollowersAll = true;
+  xAxisLabelFollowersAll = 'Fechas';
+  showYAxisLabelFollowersAll = true;
+  yAxisLabelFollowersAll = 'Número de Seguidores';
+  autoScaleFollowersAll = true;
+
+
+  // INDICE DE MATONEO
+
+  tweetsByAccount: any[];
+  replayTweetsByID: any[];
+  colorSchemeGauge = {
+    domain: ['#C7B42C', '#5AA454', '#A10A28']
+  };
+  dataGauge: any[];
+
 
 
 
@@ -125,6 +153,30 @@ export class SentimentComponent implements OnInit {
       },
       (error) => { console.error(error); }
       );
+
+    this.backservice.getFollowersAll()
+      .then(
+      (data) => { // Success
+        this.multiLineChartFollowersAll = [...data];
+      },
+      (error) => { console.error(error); }
+      );
+
+    this.dataGauge = [
+      {
+        'name': 'Germany',
+        'value': 5000
+      },
+      {
+        'name': 'USA',
+        'value': 1000
+      },
+      {
+        'name': 'France',
+        'value': 100
+      }
+    ];
+
   }
 
 
@@ -138,6 +190,32 @@ export class SentimentComponent implements OnInit {
       },
       (error) => { console.error(error); }
       );
+  }
+
+  onImageGetTweetsClick(name) {
+    this.nameFollowers = name;
+    this.backservice.getLastTweetsByAccount(this.nameFollowers)
+      .then(
+      (data) => { // Success
+        this.tweetsByAccount = [...data];
+      },
+      (error) => { console.error(error); }
+      );
+  }
+
+  onClickButtonLastTweets(id) {
+    this.backservice.getLastReplayByTweetID(id)
+      .then(
+      (data) => { // Success
+        this.replayTweetsByID = [...data];
+        console.log(data);
+      },
+      (error) => { console.error(error); }
+      );
+  }
+
+   url(url) {
+    return 'assets/BULLYIN/' + url + '.png';
   }
 
 
