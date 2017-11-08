@@ -90,6 +90,12 @@ export class BackService {
       .toPromise()
   }
 
+  getFrequencyByTopicUsedByUser(name) {
+    return this.http.get('http://' + this.address + ':' + this.port + '/getFrequencyByTopicUsedByUser/' + name)
+      .map(res => res.json())
+      .toPromise()
+  }
+
   doCloud() {
     return this.http.get('http://' + this.address + ':' + this.port + '/cloud')
       .map(res => res.json())

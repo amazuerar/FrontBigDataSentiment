@@ -135,6 +135,7 @@ export class SentimentComponent implements OnInit {
 
   singleTopicsAll: any[];
   singleTopicsUser: any[];
+  singleTopicsUsedByUser: any[];
   nameTopics;
 
 
@@ -161,6 +162,20 @@ export class SentimentComponent implements OnInit {
   showYAxisLabelTopicsUser = true;
   yAxisLabelTopicsUser = '';
 
+  // options
+  viewTopicsUsedByUser: any[] = [500, 300];
+  showXAxisTopicsUsedByUser = true;
+  showYAxisTopicsUsedByUser = true;
+  gradientTopicsUsedByUser = false;
+  showLegendTopicUsedByUser = true;
+  showXAxisLabelTopicsUsedByUser = true;
+  xAxisLabelTopicsUsedByUser = '';
+  showYAxisLabelTopicsUsedByUser = true;
+  yAxisLabelTopicsUsedByUser = '';
+  colorSchemeTopicsUsedByUse = {
+    domain: ['#1D68FB', '#33C0FC', '#4AFFFE', '#AFFFFF', '#FFFC63', '#FDBD2D', '#5AA454', '#FC8A25', '#FA4F1E', '#FA141B', '#BA38D1']
+  };
+
 
 
   constructor(private elementRef: ElementRef, private backservice: BackService, private fb: FormBuilder, private ngZone: NgZone) {
@@ -171,21 +186,22 @@ export class SentimentComponent implements OnInit {
 
   ngOnInit() {
 
-
+    this.loading = true;
     this.backservice.getInfoGeneral()
       .then(
       (data) => { // Success
-        this.singleAdvancedPie = data;
+        this.singleAdvancedPie = data; this.loading = false;
       },
-      (error) => { console.error(error); }
+      (error) => { console.error(error);  this.loading = false; }
       );
 
+    this.loading = true;
     this.backservice.getInfoGeneralDos()
       .then(
       (data) => { // Success
-        this.multiLineChart = data;
+        this.multiLineChart = data; this.loading = false;
       },
-      (error) => { console.error(error); }
+      (error) => { console.error(error);  this.loading = false; }
       );
 
     this.backservice.getFollowers(this.nameFollowers)
@@ -272,6 +288,7 @@ export class SentimentComponent implements OnInit {
   onClickImageTopicsGetFrequencyByTopicByUsername(name) {
     this.loading = true;
     this.nameTopics = name;
+
     this.backservice.getFrequencyByTopicByUsername(name)
       .then(
       (data) => { // Success
@@ -280,11 +297,19 @@ export class SentimentComponent implements OnInit {
       },
       (error) => { console.error(error); this.loading = false; }
       );
+
+    this.loading = true;
+    this.backservice.getFrequencyByTopicUsedByUser(name)
+      .then(
+      (data) => { // Success
+        this.singleTopicsUsedByUser = [...data];
+        this.loading = false;
+      },
+      (error) => { console.error(error); this.loading = false; }
+      );
   }
 
-  url(url) {
-    return 'assets/BULLYIN/' + url + '.png';
-  }
+
 
 
   getCloud() {
@@ -307,15 +332,12 @@ export class SentimentComponent implements OnInit {
   }
 
 
-
-  createImage() {
-
+  url(url) {
+    return 'assets/BULLYIN/' + url + '.png';
   }
 
-
-
-  filter() {
-
+  twitterUrl(name) {
+    window.open('https://twitter.com/' + name + '?lang=es');
   }
 
 

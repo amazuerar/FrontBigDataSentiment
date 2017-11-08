@@ -35,7 +35,7 @@
     <a class="nav-link" id="contact-tab" data-toggle="tab" href="#timeline" role="tab" aria-controls="contact" aria-selected="false">Temas de interés</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#afinidad" role="tab" aria-controls="contact" aria-selected="false">Afinidad</a>
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#afinidad" role="tab" aria-controls="contact" aria-selected="false">Tag Cloud</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" id="contact-tab" data-toggle="tab" href="#tweets" role="tab" aria-controls="contact" aria-selected="false">Tweets</a>
@@ -46,79 +46,79 @@
 </ul>
 
 <div class="tab-content" id="myTabContent">
-  
+
 
 
   <!-- GRAFICAS DEL DASHBOARD PRINCIPAL-->
   <div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
     <div class="container-fluid" style="margin-top: 20px;">
       <div class="row">
-        <div class="col-sm">
-          <img src="assets\@A_OrdonezM.jpg" class="circle" data-toggle="tooltip" data-placement="top" title="@A_OrdonezM">
+        <div class="col-sm" (click)="twitterUrl('A_OrdonezM')">
+          <img src="assets\@A_OrdonezM.jpg" class="circle">
         </div>
-        <div class="col-sm">
+        <div class="col-sm" (click)="twitterUrl('AlvaroUribeVel')">
           <img src="assets\@AlvaroUribeVel.jpeg" class="circle">
         </div>
-        <div class="col-sm">
+        <div class="col-sm" (click)="twitterUrl('AndresPastrana_')">
           <img src="assets\@AndresPastrana_.jpg" class="circle">
         </div>
-        <div class="col-sm">
+        <div class="col-sm" (click)="twitterUrl('BluRadioCo')">
           <img src="assets\@BluRadioCo.jpg" class="circle">
         </div>
-        <div class="col-sm">
+        <div class="col-sm" (click)="twitterUrl('CaracolRadio')">
           <img src="assets\@CaracolRadio.jpg" class="circle">
         </div>
-        <div class="col-sm">
+        <div class="col-sm" (click)="twitterUrl('CGurisattiNTN24')">
           <img src="assets\@CGurisattiNTN24.jpg" class="circle">
         </div>
-        <div class="col-sm">
+        <div class="col-sm" (click)="twitterUrl('ClaudiaLopez')">
           <img src="assets\@ClaudiaLopez.jpg" class="circle">
         </div>
-        <div class="col-sm">
+        <div class="col-sm" (click)="twitterUrl('DanielSamperO')">
           <img src="assets\@DanielSamperO.jpg" class="circle">
         </div>
-        <div class="col-sm">
+        <div class="col-sm" (click)="twitterUrl('DeLaCalleHum')">
           <img src="assets\@DeLaCalleHum.jpg" class="circle">
         </div>
-        <div class="col-sm">
+        <div class="col-sm" (click)="twitterUrl('elespectador')">
           <img src="assets\@elespectador.jpg" class="circle">
         </div>
-        <div class="col-sm">
+        <div class="col-sm" (click)="twitterUrl('ELTIEMPO')">
           <img src="assets\@ELTIEMPO.jpg" class="circle">
         </div>
       </div>
       <div class="row" style="margin-top: 15px;">
-        <div class="col-sm">
+        <div class="col-sm" (click)="twitterUrl('FARC_EPaz')">
           <img src="assets\@FARC_EPaz.jpg" class="circle">
         </div>
-        <div class="col-sm">
+        <div class="col-sm" (click)="twitterUrl('German_Vargas')">
           <img src="assets\@German_Vargas.jpg" class="circle">
         </div>
-        <div class="col-sm">
+        <div class="col-sm" (click)="twitterUrl('IvanDuque')">
           <img src="assets\@IvanDuque.jpg" class="circle">
         </div>
-        <div class="col-sm">
+        <div class="col-sm" (click)="twitterUrl('JSantrich_FARC')">
           <img src="assets\@JSantrich_FARC.jpg" class="circle">
         </div>
-        <div class="col-sm">
+        <div class="col-sm" (click)="twitterUrl('JuanManSantos')">
           <img src="assets\@JuanManSantos.jpg" class="circle">
         </div>
-        <div class="col-sm">
+        <div class="col-sm" (click)="twitterUrl('mluciaramirez')">
           <img src="assets\@mluciaramirez.jpg" class="circle">
         </div>
-        <div class="col-sm">
+        <div class="col-sm" (click)="twitterUrl('NoticiasCaracol')">
           <img src="assets\@NoticiasCaracol.jpg" class="circle">
         </div>
-        <div class="col-sm">
+        <div class="col-sm" (click)="twitterUrl('NoticiasRCN')">
           <img src="assets\@NoticiasRCN.jpg" class="circle">
         </div>
-        <div class="col-sm">
+        <div class="col-sm" (click)="twitterUrl('OIZuluaga')">
           <img src="assets\@OIZuluaga.png" class="circle">
         </div>
-        <div class="col-sm">
+        <div class="col-sm" (click)="twitterUrl('petrogustavo')">
           <img src="assets\@petrogustavo.jpg" class="circle">
         </div>
-        <div class="col-sm">
+        <div class="col-sm" (click)="twitterUrl('TimoFARC')">
           <img src="assets\@TimoFARC.jpg" class="circle">
         </div>
       </div>
@@ -248,7 +248,7 @@
             <ngx-charts-line-chart *ngIf="multiLineChartFollowers && multiLineChartFollowers.length > 0" [view]="viewLineChartFollowers"
               [scheme]="colorSchemeLineChartFollowers" [results]="multiLineChartFollowers " [gradient]="gradientFollowers"
               [xAxis]="showXAxisFollowers" [yAxis]="showYAxisFollowers" [legend]="showLegendLineChartFollowers" [showXAxisLabel]="showXAxisLabelFollowers"
-              [showYAxisLabel]="showYAxisLabelFollowers" [xAxisLabel]="xAxisLabelFollowers"  [yAxisLabel]="yAxisLabelFollowers"
+              [showYAxisLabel]="showYAxisLabelFollowers" [xAxisLabel]="xAxisLabelFollowers" [yAxisLabel]="yAxisLabelFollowers"
               [autoScale]="autoScaleFollowers" [tooltipDisabled]=false [animations]=false>
             </ngx-charts-line-chart>
           </div>
@@ -501,21 +501,43 @@
         </div>
       </div>
       <div class="row" style="margin-top: 30px;">
+
         <div class="col col-5" style="margin-left: 20px; height: 500px;">
           <div>Totalidad de menciones de los temas de interés</div>
-          <ngx-charts-bar-vertical *ngIf="singleTopicsAll && singleTopicsAll.length > 0"  [results]="singleTopicsAll" [gradient]="gradientTopicsAll" [xAxis]="showXAxisTopicsAll"
-            [yAxis]="showYAxisTopicsAll" [legend]="showLegendTopicsAll" [showXAxisLabel]="showXAxisLabelTopicsAll" [showYAxisLabel]="showYAxisLabelTopicsAll"
-            [xAxisLabel]="xAxisLabelTopicsAll" [yAxisLabel]="yAxisLabelTopicsAll">
+          <ngx-charts-bar-vertical *ngIf="singleTopicsAll && singleTopicsAll.length > 0" [results]="singleTopicsAll" [gradient]="gradientTopicsAll"
+            [xAxis]="showXAxisTopicsAll" [yAxis]="showYAxisTopicsAll" [legend]="showLegendTopicsAll" [showXAxisLabel]="showXAxisLabelTopicsAll"
+            [showYAxisLabel]="showYAxisLabelTopicsAll" [xAxisLabel]="xAxisLabelTopicsAll" [yAxisLabel]="yAxisLabelTopicsAll">
           </ngx-charts-bar-vertical>
         </div>
 
         <div class="col col-5" style="margin-left: 20px; height: 500px;">
           <div *ngIf="singleTopicsUser && singleTopicsUser.length > 0">Totalidad de los temas de interés donde mencionan a @{{nameTopics}}</div>
-          <ngx-charts-bar-vertical *ngIf="singleTopicsUser && singleTopicsUser.length > 0" [results]="singleTopicsUser" [gradient]="gradientTopicsUser" [xAxis]="showXAxisTopicsUser"
-            [yAxis]="showYAxisTopicsUser" [legend]="showLegendTopicsUser" [showXAxisLabel]="showXAxisLabelTopicsUser" [showYAxisLabel]="showYAxisLabelTopicsUser"
-            [xAxisLabel]="xAxisLabelTopicsUser" [yAxisLabel]="yAxisLabelTopicsUser">
+          <ngx-charts-bar-vertical *ngIf="singleTopicsUser && singleTopicsUser.length > 0" [results]="singleTopicsUser" [gradient]="gradientTopicsUser"
+            [xAxis]="showXAxisTopicsUser" [yAxis]="showYAxisTopicsUser" [legend]="showLegendTopicsUser" [showXAxisLabel]="showXAxisLabelTopicsUser"
+            [showYAxisLabel]="showYAxisLabelTopicsUser" [xAxisLabel]="xAxisLabelTopicsUser" [yAxisLabel]="yAxisLabelTopicsUser">
           </ngx-charts-bar-vertical>
         </div>
+
+      </div>
+
+      <div class="row" style="margin-top: 30px;">
+
+        <div class="col col-5" style="margin-left: 20px; height: 500px;">
+          <div *ngIf="singleTopicsUsedByUser && singleTopicsUsedByUser.length > 0">Frecuencias en que @{{nameTopics}} menciona los temas</div>
+          <ngx-charts-bar-vertical *ngIf="singleTopicsUsedByUser && singleTopicsUsedByUser.length > 0" [results]="singleTopicsUsedByUser"
+            [gradient]="gradientTopicsUsedByUser" [xAxis]="showXAxisTopicsUsedByUser" [yAxis]="showYAxisTopicsUsedByUser" [legend]="showLegendTopicUsedByUser"
+            [showXAxisLabel]="showXAxisLabelTopicsUsedByUser" [showYAxisLabel]="showYAxisLabelTopicsUsedByUser" [xAxisLabel]="xAxisLabelTopicsUsedByUser"
+            [yAxisLabel]="yAxisLabelTopicsUsedByUser">
+          </ngx-charts-bar-vertical>
+        </div>
+
+        <div class="col col-5" style="margin-left: 20px; height: 500px;">
+          <div *ngIf="singleTopicsUsedByUser && singleTopicsUsedByUser.length > 0">Porcentaje en que @{{nameTopics}} menciona los temas</div>
+          <ngx-charts-advanced-pie-chart *ngIf="singleTopicsUsedByUser && singleTopicsUsedByUser.length > 0" [results]="singleTopicsUsedByUser"
+            [gradient]="gradientTopicsUsedByUser" [scheme]="colorSchemeTopicsUsedByUse">
+          </ngx-charts-advanced-pie-chart>
+        </div>
+        
       </div>
 
     </div>
