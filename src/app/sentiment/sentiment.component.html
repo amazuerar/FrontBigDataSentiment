@@ -1,3 +1,4 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
 <div class="jumbotron jumbotron-fluid" style="padding-top: 15px; padding-bottom: 15px; margin-bottom: 10px">
   <div class="container">
     <div class="row">
@@ -45,7 +46,7 @@
 </ul>
 
 <div class="tab-content" id="myTabContent">
-  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+  
 
 
   <!-- GRAFICAS DEL DASHBOARD PRINCIPAL-->
@@ -247,19 +248,12 @@
             <ngx-charts-line-chart *ngIf="multiLineChartFollowers && multiLineChartFollowers.length > 0" [view]="viewLineChartFollowers"
               [scheme]="colorSchemeLineChartFollowers" [results]="multiLineChartFollowers " [gradient]="gradientFollowers"
               [xAxis]="showXAxisFollowers" [yAxis]="showYAxisFollowers" [legend]="showLegendLineChartFollowers" [showXAxisLabel]="showXAxisLabelFollowers"
-              [showYAxisLabel]="showYAxisLabelFollowers" [xAxisLabel]="xAxisLabelFollowers" [timeline]="true" [yAxisLabel]="yAxisLabelFollowers"
-              [autoScale]="autoScaleFollowers" [timeline]=true [tooltipDisabled]=false>
+              [showYAxisLabel]="showYAxisLabelFollowers" [xAxisLabel]="xAxisLabelFollowers"  [yAxisLabel]="yAxisLabelFollowers"
+              [autoScale]="autoScaleFollowers" [tooltipDisabled]=false [animations]=false>
             </ngx-charts-line-chart>
           </div>
         </div>
       </div>
-      <!--
-      <ngx-charts-line-chart *ngIf="multiLineChartFollowersAll && multiLineChartFollowersAll.length > 0" [view]="viewLineChartFollowersAll"
-              [scheme]="colorSchemeLineChartFollowersAll" [results]="multiLineChartFollowersAll" [gradient]="gradientFollowersAll"
-              [xAxis]="showXAxisFollowersAll" [yAxis]="showYAxisFollowersAll" [legend]="showLegendLineChartFollowersAll" [showXAxisLabel]="showXAxisLabelFollowersAll"
-              [showYAxisLabel]="showYAxisLabelFollowersAll" [xAxisLabel]="xAxisLabelFollowersAll" [timeline]="true" [yAxisLabel]="yAxisLabelFollowersAll"
-              [autoScale]="autoScaleFollowersAll" [timeline]=true [tooltipDisabled]=false> 
-            </ngx-charts-line-chart>-->
 
     </div>
   </div>
@@ -369,7 +363,7 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th class="col col-3">Tweet de @{{nameFollowers}}</th>
+                  <th class="col col-3">Tweets de @{{nameMatone}}</th>
                   <th class="col col-2">Respuestas</th>
                 </tr>
               </thead>
@@ -438,86 +432,86 @@
     <div class="container-fluid" style="margin-top: 15px;">
       <div class="row" style="margin-top: 15px;">
         <div class="col-sm">
-          <img src="assets\@A_OrdonezM.jpg" class="circle">
+          <img src="assets\@A_OrdonezM.jpg" class="circle" (click)="onClickImageTopicsGetFrequencyByTopicByUsername('A_OrdonezM')">
         </div>
         <div class="col-sm">
-          <img src="assets\@AlvaroUribeVel.jpeg" class="circle">
+          <img src="assets\@AlvaroUribeVel.jpeg" class="circle" (click)="onClickImageTopicsGetFrequencyByTopicByUsername('AlvaroUribeVel')">
         </div>
         <div class="col-sm">
-          <img src="assets\@AndresPastrana_.jpg" class="circle">
+          <img src="assets\@AndresPastrana_.jpg" class="circle" (click)="onClickImageTopicsGetFrequencyByTopicByUsername('AndresPastrana_')">
         </div>
         <div class="col-sm">
-          <img src="assets\@BluRadioCo.jpg" class="circle">
+          <img src="assets\@BluRadioCo.jpg" class="circle" (click)="onClickImageTopicsGetFrequencyByTopicByUsername('BluRadioCo')">
         </div>
         <div class="col-sm">
-          <img src="assets\@CaracolRadio.jpg" class="circle">
+          <img src="assets\@CaracolRadio.jpg" class="circle" (click)="onClickImageTopicsGetFrequencyByTopicByUsername('CaracolRadio')">
         </div>
         <div class="col-sm">
-          <img src="assets\@CGurisattiNTN24.jpg" class="circle">
+          <img src="assets\@CGurisattiNTN24.jpg" class="circle" (click)="onClickImageTopicsGetFrequencyByTopicByUsername('CGurisattiNTN24')">
         </div>
         <div class="col-sm">
-          <img src="assets\@ClaudiaLopez.jpg" class="circle">
+          <img src="assets\@ClaudiaLopez.jpg" class="circle" (click)="onClickImageTopicsGetFrequencyByTopicByUsername('ClaudiaLopez')">
         </div>
         <div class="col-sm">
-          <img src="assets\@DanielSamperO.jpg" class="circle">
+          <img src="assets\@DanielSamperO.jpg" class="circle" (click)="onClickImageTopicsGetFrequencyByTopicByUsername('DanielSamperO')">
         </div>
         <div class="col-sm">
-          <img src="assets\@DeLaCalleHum.jpg" class="circle">
+          <img src="assets\@DeLaCalleHum.jpg" class="circle" (click)="onClickImageTopicsGetFrequencyByTopicByUsername('DeLaCalleHum')">
         </div>
         <div class="col-sm">
-          <img src="assets\@elespectador.jpg" class="circle">
+          <img src="assets\@elespectador.jpg" class="circle" (click)="onClickImageTopicsGetFrequencyByTopicByUsername('elespectador')">
         </div>
         <div class="col-sm">
-          <img src="assets\@ELTIEMPO.jpg" class="circle">
+          <img src="assets\@ELTIEMPO.jpg" class="circle" (click)="onClickImageTopicsGetFrequencyByTopicByUsername('ELTIEMPO')">
         </div>
       </div>
       <div class="row" style="margin-top: 15px; ">
         <div class="col-sm">
-          <img src="assets\@FARC_EPaz.jpg" class="circle">
+          <img src="assets\@FARC_EPaz.jpg" class="circle" (click)="onClickImageTopicsGetFrequencyByTopicByUsername('FARC_EPaz')">
         </div>
         <div class="col-sm">
-          <img src="assets\@German_Vargas.jpg" class="circle">
+          <img src="assets\@German_Vargas.jpg" class="circle" (click)="onClickImageTopicsGetFrequencyByTopicByUsername('German_Vargas')">
         </div>
         <div class="col-sm">
-          <img src="assets\@IvanDuque.jpg" class="circle">
+          <img src="assets\@IvanDuque.jpg" class="circle" (click)="onClickImageTopicsGetFrequencyByTopicByUsername('IvanDuque')">
         </div>
         <div class="col-sm">
-          <img src="assets\@JSantrich_FARC.jpg" class="circle">
+          <img src="assets\@JSantrich_FARC.jpg" class="circle" (click)="onClickImageTopicsGetFrequencyByTopicByUsername('JSantrich_FARC')">
         </div>
         <div class="col-sm">
-          <img src="assets\@JuanManSantos.jpg" class="circle">
+          <img src="assets\@JuanManSantos.jpg" class="circle" (click)="onClickImageTopicsGetFrequencyByTopicByUsername('JuanManSantos')">
         </div>
         <div class="col-sm">
-          <img src="assets\@mluciaramirez.jpg" class="circle">
+          <img src="assets\@mluciaramirez.jpg" class="circle" (click)="onClickImageTopicsGetFrequencyByTopicByUsername('mluciaramirez')">
         </div>
         <div class="col-sm">
-          <img src="assets\@NoticiasCaracol.jpg" class="circle">
+          <img src="assets\@NoticiasCaracol.jpg" class="circle" (click)="onClickImageTopicsGetFrequencyByTopicByUsername('NoticiasCaracol')">
         </div>
         <div class="col-sm">
-          <img src="assets\@NoticiasRCN.jpg" class="circle">
+          <img src="assets\@NoticiasRCN.jpg" class="circle" (click)="onClickImageTopicsGetFrequencyByTopicByUsername('NoticiasRCN')">
         </div>
         <div class="col-sm">
-          <img src="assets\@OIZuluaga.png" class="circle">
+          <img src="assets\@OIZuluaga.png" class="circle" (click)="onClickImageTopicsGetFrequencyByTopicByUsername('OIZuluaga')">
         </div>
         <div class="col-sm">
-          <img src="assets\@petrogustavo.jpg" class="circle">
+          <img src="assets\@petrogustavo.jpg" class="circle" (click)="onClickImageTopicsGetFrequencyByTopicByUsername('petrogustavo')">
         </div>
         <div class="col-sm">
-          <img src="assets\@TimoFARC.jpg" class="circle">
+          <img src="assets\@TimoFARC.jpg" class="circle" (click)="onClickImageTopicsGetFrequencyByTopicByUsername('TimoFARC')">
         </div>
       </div>
       <div class="row" style="margin-top: 30px;">
-        <div class="col col-6" style="margin-left: 20px;">
+        <div class="col col-5" style="margin-left: 20px; height: 500px;">
           <div>Totalidad de menciones de los temas de interés</div>
-          <ngx-charts-bar-vertical [view]="viewTopicsAll" [results]="singleTopicsAll" [gradient]="gradientTopicsAll" [xAxis]="showXAxisTopicsAll"
+          <ngx-charts-bar-vertical *ngIf="singleTopicsAll && singleTopicsAll.length > 0"  [results]="singleTopicsAll" [gradient]="gradientTopicsAll" [xAxis]="showXAxisTopicsAll"
             [yAxis]="showYAxisTopicsAll" [legend]="showLegendTopicsAll" [showXAxisLabel]="showXAxisLabelTopicsAll" [showYAxisLabel]="showYAxisLabelTopicsAll"
             [xAxisLabel]="xAxisLabelTopicsAll" [yAxisLabel]="yAxisLabelTopicsAll">
           </ngx-charts-bar-vertical>
         </div>
 
-        <div class="col co-6" style="margin-left: 20px;">
-          <div>Totalidad de los temas de interés donde mencionan a</div>
-          <ngx-charts-bar-vertical [view]="viewTopicsUser" [results]="singleTopicsUser" [gradient]="gradientTopicsUser" [xAxis]="showXAxisTopicsUser"
+        <div class="col col-5" style="margin-left: 20px; height: 500px;">
+          <div *ngIf="singleTopicsUser && singleTopicsUser.length > 0">Totalidad de los temas de interés donde mencionan a @{{nameTopics}}</div>
+          <ngx-charts-bar-vertical *ngIf="singleTopicsUser && singleTopicsUser.length > 0" [results]="singleTopicsUser" [gradient]="gradientTopicsUser" [xAxis]="showXAxisTopicsUser"
             [yAxis]="showYAxisTopicsUser" [legend]="showLegendTopicsUser" [showXAxisLabel]="showXAxisLabelTopicsUser" [showYAxisLabel]="showYAxisLabelTopicsUser"
             [xAxisLabel]="xAxisLabelTopicsUser" [yAxisLabel]="yAxisLabelTopicsUser">
           </ngx-charts-bar-vertical>

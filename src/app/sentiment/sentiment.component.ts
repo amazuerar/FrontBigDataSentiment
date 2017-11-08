@@ -111,6 +111,7 @@ export class SentimentComponent implements OnInit {
 
 
   // INDICE DE MATONEO
+  nameMatone = '';
 
   tweetsByAccount: any[];
   replayTweetsByID: any[];
@@ -134,6 +135,7 @@ export class SentimentComponent implements OnInit {
 
   singleTopicsAll: any[];
   singleTopicsUser: any[];
+  nameTopics;
 
 
   // options
@@ -202,56 +204,39 @@ export class SentimentComponent implements OnInit {
       (error) => { console.error(error); }
       );
 
-    this.singleTopicsAll = [
-      {
-        'name': 'Germany',
-        'value': 8940000
-      },
-      {
-        'name': 'USA',
-        'value': 5000000
-      },
-      {
-        'name': 'France',
-        'value': 7200000
-      }
-    ];
 
-    this.singleTopicsUser = [
-      {
-        'name': 'Germany',
-        'value': 8940000
+    this.backservice.getFrequencyByTopic()
+      .then(
+      (data) => { // Success
+        this.singleTopicsAll = [...data];
       },
-      {
-        'name': 'USA',
-        'value': 5000000
-      },
-      {
-        'name': 'France',
-        'value': 7200000
-      }
-    ];
+      (error) => { console.error(error); }
+      );
+
+
 
   }
 
 
 
   onImageFollowerClick(name) {
+    this.loading = true;
     this.nameFollowers = name;
     this.backservice.getFollowers(this.nameFollowers)
       .then(
       (data) => { // Success
         this.multiLineChartFollowers = [...data];
+        this.loading = false;
       },
-      (error) => { console.error(error); }
+      (error) => { console.error(error); this.loading = false; }
       );
   }
 
   onImageGetTweetsClick(name) {
-    this.nameFollowers = name;
+    this.nameMatone = name;
     this.dataGauge = [];
     this.loading = true;
-    this.backservice.getLastTweetsByAccount(this.nameFollowers)
+    this.backservice.getLastTweetsByAccount(name)
       .then(
       (data) => { // Success
         this.tweetsByAccount = [...data];
@@ -284,6 +269,19 @@ export class SentimentComponent implements OnInit {
       );
   }
 
+  onClickImageTopicsGetFrequencyByTopicByUsername(name) {
+    this.loading = true;
+    this.nameTopics = name;
+    this.backservice.getFrequencyByTopicByUsername(name)
+      .then(
+      (data) => { // Success
+        this.singleTopicsUser = [...data];
+        this.loading = false;
+      },
+      (error) => { console.error(error); this.loading = false; }
+      );
+  }
+
   url(url) {
     return 'assets/BULLYIN/' + url + '.png';
   }
@@ -307,6 +305,8 @@ export class SentimentComponent implements OnInit {
       (error) => { console.error(error); this.loading = false; }
       );
   }
+
+
 
   createImage() {
 
