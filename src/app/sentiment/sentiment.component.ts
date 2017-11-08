@@ -13,6 +13,8 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 })
 export class SentimentComponent implements OnInit {
 
+  public loading = false;
+
   personajes = [
     'CGurisattiNTN24',
     'DanielSamperO',
@@ -52,7 +54,7 @@ export class SentimentComponent implements OnInit {
 
 
   // DASHBOARD LINE CHART
-  viewLineChart: number[] = [1100, 300];
+  viewLineChart: number[] = [900, 300];
   colorSchemeLineChart = {
     domain: ['#C7B42C', '#5AA454', '#A10A28']
   };
@@ -70,7 +72,7 @@ export class SentimentComponent implements OnInit {
   autoScale = true;
 
   // HISTORICO FOLLOWERS
-  viewLineChartFollowers: number[] = [1200, 500];
+  viewLineChartFollowers: number[] = [1000, 500];
   colorSchemeLineChartFollowers = {
     domain: ['#0000FF', '#5AA454', '#A10A28']
   };
@@ -112,10 +114,20 @@ export class SentimentComponent implements OnInit {
 
   tweetsByAccount: any[];
   replayTweetsByID: any[];
+  replaySentimentTweetsByID: any[];
+
+  viewGaugeMatone: number[] = [500, 300];
   colorSchemeGauge = {
-    domain: ['#C7B42C', '#5AA454', '#A10A28']
+    domain: ['#A10A28', '#5AA454', '#C7B42C']
   };
   dataGauge: any[];
+  maxGauge;
+  viewMatonePie: number[] = [500, 300];
+  colorSchemeMatonePie = {
+    domain: ['#A10A28', '#5AA454', '#C7B42C']
+  };
+  tooltipMatonePie = true;
+  gradientMatonePie = true;
 
 
 
@@ -162,20 +174,6 @@ export class SentimentComponent implements OnInit {
       (error) => { console.error(error); }
       );
 
-    this.dataGauge = [
-      {
-        'name': 'Germany',
-        'value': 5000
-      },
-      {
-        'name': 'USA',
-        'value': 1000
-      },
-      {
-        'name': 'France',
-        'value': 100
-      }
-    ];
 
   }
 
@@ -194,27 +192,42 @@ export class SentimentComponent implements OnInit {
 
   onImageGetTweetsClick(name) {
     this.nameFollowers = name;
+    this.dataGauge = [];
+    this.loading = true;
     this.backservice.getLastTweetsByAccount(this.nameFollowers)
       .then(
       (data) => { // Success
         this.tweetsByAccount = [...data];
+        this.loading = false;
+
       },
-      (error) => { console.error(error); }
+      (error) => { console.error(error); this.loading = false; }
       );
   }
 
   onClickButtonLastTweets(id) {
+    this.loading = true;
     this.backservice.getLastReplayByTweetID(id)
       .then(
       (data) => { // Success
         this.replayTweetsByID = [...data];
-        console.log(data);
+        this.loading = false;
       },
-      (error) => { console.error(error); }
+      (error) => { console.error(error); this.loading = false; }
+      );
+
+      this.loading = true;
+    this.backservice.getLastSentimentReplayByTweetID(id)
+      .then(
+      (data) => { // Success
+        this.dataGauge = [...data];
+        this.loading = false;
+      },
+      (error) => { console.error(error); this.loading = false; }
       );
   }
 
-   url(url) {
+  url(url) {
     return 'assets/BULLYIN/' + url + '.png';
   }
 

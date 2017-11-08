@@ -1,0 +1,92 @@
+<div class="jumbotron jumbotron-fluid" style="padding-top: 15px; padding-bottom: 15px; margin-bottom: 10px">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-10 col-md-10">
+        <h3 class="display-4">NoSQL y análisis de contenido</h3>
+        <p class="lead">Análisis de una fuente de datos escalable, con contenido textual. </p>
+        <span class="text-muted">Grupo 10: Diego Fernando Escobar Trujillo - Lucy Jacquelin Morales Diaz - Alejandro Mazuera Rozo</span>
+      </div>
+      <div class="col-xs-2 col-md-2">
+        <img src="assets\twitter.png" style="width: 100%;height: auto;">
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<div class="container-fluid">
+  <!-- this creates a google map on the page with the given lat/lng from -->
+  <!-- the component as the initial center of the map: -->
+  <div class="row">
+    <div class="col col-6">
+      <agm-map [latitude]="latBog" [longitude]="lngBog" [zoom]="zoom">
+        <agm-circle [latitude]="lat" [longitude]="lng" 
+          [radius]="70000"
+          [fillColor]="'red'"
+          [circleDraggable]="false"
+          [editable]="false" 
+          [clickable]="true"
+          (circleClick)="clicZone('bog')">
+      </agm-circle>
+
+      <agm-circle [latitude]="latClo" [longitude]="lngClo" 
+          [radius]="70000"
+          [fillColor]="'blue'"
+          [circleDraggable]="false"
+          [editable]="false"
+          [clickable]="true"
+          (circleClick)="clicZone('clo')">
+      </agm-circle>
+
+      <agm-circle [latitude]="latMde" [longitude]="lngMde" 
+          [radius]="70000"
+          [fillColor]="'green'"
+          [circleDraggable]="false"
+          [editable]="false"
+          [clickable]="true"
+          (circleClick)="clicZone('mde')">
+      </agm-circle>
+
+      <agm-circle [latitude]="latBqa" [longitude]="lngBqa" 
+          [radius]="70000"
+          [fillColor]="'yellow'"
+          [circleDraggable]="false"
+          [editable]="false"
+          [clickable]="true"
+          (circleClick)="clicZone('bqa')">
+      </agm-circle>
+      </agm-map>
+    </div>
+    <div class="col col-6" style="height: 550px; overflow: auto">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th class="col-xs-6">Texto</th>
+            <th class="col-xs-2">Hashtag</th>
+            <th class="col-xs-2">Menciones</th>
+            <th class="col-xs-2">Polaridad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let m of markers;">
+            <td class="col-xs-3">{{m.text}}</td>
+            <td class="col-xs-3">
+              <ul>
+                <li *ngFor="let hashtag of m.entities_hashtags;">{{hashtag}}</li>
+              </ul>
+            </td>
+            <td class="col-xs-6">
+              <ul>
+                <li *ngFor="let mencion of m.entities_mentions;">{{mencion}}</li>
+              </ul>
+            </td>
+            <td class="col-xs-3">
+              <img [src]="url(m.sentiment)" style="width: 60px;height: auto;">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

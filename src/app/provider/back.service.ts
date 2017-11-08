@@ -47,7 +47,7 @@ export class BackService {
       .toPromise()
   }
 
-    getLastTweetsByAccount(name) {
+  getLastTweetsByAccount(name) {
     return this.http.get('http://' + this.address + ':' + this.port + '/getLastTweetsByAccount/' + name)
       .map(res => res.json())
       .toPromise()
@@ -59,9 +59,21 @@ export class BackService {
       .toPromise()
   }
 
+  getLastSentimentReplayByTweetID(id) {
+    return this.http.get('http://' + this.address + ':' + this.port + '/getLastSentimentReplayByTweetID/' + id)
+      .map(res => res.json())
+      .toPromise()
+  }
+
 
   getGeo() {
     return this.http.get('http://' + this.address + ':' + this.port + '/geo')
+      .map(res => res.json())
+      .toPromise()
+  }
+
+  getTopics() {
+    return this.http.get('http://' + this.address + ':' + this.port + '/topics')
       .map(res => res.json())
       .toPromise()
   }

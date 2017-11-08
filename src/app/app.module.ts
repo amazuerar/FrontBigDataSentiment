@@ -13,10 +13,13 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AgmCoreModule } from '@agm/core';
 import { HistoricoSeguidoresComponent } from './historico-seguidores/historico-seguidores.component';
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
+import { LoadingModule } from 'ngx-loading';
+import { MapaRegionalComponent } from './mapa-regional/mapa-regional.component';
 
 const appRoutes: Routes = [
   { path: 'Sentiment', component: SentimentComponent },
   { path: 'Mapa', component: HistoricoSeguidoresComponent },
+  { path: 'MapaRegional', component: MapaRegionalComponent },
   { path: '**', component: SentimentComponent }
 ];
 
@@ -24,10 +27,12 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     SentimentComponent,
-    HistoricoSeguidoresComponent
+    HistoricoSeguidoresComponent,
+    MapaRegionalComponent
   ],
   imports: [
     AgmJsMarkerClustererModule,
+    LoadingModule,
     BrowserModule,
     CommonModule,
     BrowserAnimationsModule,
