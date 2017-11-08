@@ -78,6 +78,12 @@ export class BackService {
       .toPromise()
   }
 
+  doCloud() {
+    return this.http.get('http://' + this.address + ':' + this.port + '/cloud')
+      .map(res => res.json())
+      .toPromise()
+  }
+
 
 
 

@@ -130,6 +130,34 @@ export class SentimentComponent implements OnInit {
   gradientMatonePie = true;
 
 
+  // GRAFICAS DE BARRAS DE TEMAS DE INTERES
+
+  singleTopicsAll: any[];
+  singleTopicsUser: any[];
+
+
+  // options
+  viewTopicsAll: any[] = [500, 300];
+  showXAxisTopicsAll = true;
+  showYAxisTopicsAll = true;
+  gradientTopicsAll = false;
+  showLegendTopicsAll = true;
+  showXAxisLabelTopicsAll = true;
+  xAxisLabelTopicsAll = '';
+  showYAxisLabelTopicsAll = true;
+  yAxisLabelTopicsAll = '';
+
+
+  // options
+  viewTopicsUser: any[] = [500, 300];
+  showXAxisTopicsUser = true;
+  showYAxisTopicsUser = true;
+  gradientTopicsUser = false;
+  showLegendTopicsUser = true;
+  showXAxisLabelTopicsUser = true;
+  xAxisLabelTopicsUser = '';
+  showYAxisLabelTopicsUser = true;
+  yAxisLabelTopicsUser = '';
 
 
 
@@ -174,6 +202,35 @@ export class SentimentComponent implements OnInit {
       (error) => { console.error(error); }
       );
 
+    this.singleTopicsAll = [
+      {
+        'name': 'Germany',
+        'value': 8940000
+      },
+      {
+        'name': 'USA',
+        'value': 5000000
+      },
+      {
+        'name': 'France',
+        'value': 7200000
+      }
+    ];
+
+    this.singleTopicsUser = [
+      {
+        'name': 'Germany',
+        'value': 8940000
+      },
+      {
+        'name': 'USA',
+        'value': 5000000
+      },
+      {
+        'name': 'France',
+        'value': 7200000
+      }
+    ];
 
   }
 
@@ -216,7 +273,7 @@ export class SentimentComponent implements OnInit {
       (error) => { console.error(error); this.loading = false; }
       );
 
-      this.loading = true;
+    this.loading = true;
     this.backservice.getLastSentimentReplayByTweetID(id)
       .then(
       (data) => { // Success
@@ -229,6 +286,30 @@ export class SentimentComponent implements OnInit {
 
   url(url) {
     return 'assets/BULLYIN/' + url + '.png';
+  }
+
+
+  getCloud() {
+    const div = document.getElementById('cloud');
+    const img = document.getElementById('imgcloud');
+    div.removeChild(img);
+    this.backservice.doCloud()
+      .then(
+      (data) => { // Success
+
+        const timeStamp = +new Date();
+        const uniqueUrl = 'http://127.0.0.1:8082/images/foo.png' + '?tsp=' + timeStamp;
+        const nimg = document.createElement('img');
+        nimg.setAttribute('id', 'imgcloud');
+        nimg.setAttribute('src', uniqueUrl);
+        div.appendChild(nimg);
+      },
+      (error) => { console.error(error); this.loading = false; }
+      );
+  }
+
+  createImage() {
+
   }
 
 
