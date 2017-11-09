@@ -71,6 +71,29 @@ export class SentimentComponent implements OnInit {
   yAxisLabel = 'Número de Tweets';
   autoScale = true;
 
+  // DASHBOARD TONALIDAD DE LO QUE HABLAN LOS INFLUENCIADORES
+
+  viewTonalidadInf: any[] = [900, 400];
+  multiTonalidadInf: any[];
+  // options
+  showXAxisTonalidadInf = true;
+  showYAxisTonalidadInf = true;
+  gradientTonalidadInf = false;
+  showLegendTonalidadInf = false;
+  showXAxisLabelTonalidadInf = true;
+  xAxisLabelTonalidadInf = 'Usuarios analizados';
+  showYAxisLabelTonalidadInf = true;
+  yAxisLabelTonalidadInf = 'Polaridad con la que hablan los twitteros';
+
+  colorSchemeTonalidadInf = {
+    domain: ['#C7B42C', '#5AA454', '#A10A28']
+  };
+
+
+  // DASHBOARD TONALIDAD COMO HABLAN DE LOS INFLUENCIADORES
+
+
+
   // HISTORICO FOLLOWERS
   viewLineChartFollowers: number[] = [1000, 500];
   colorSchemeLineChartFollowers = {
@@ -192,7 +215,7 @@ export class SentimentComponent implements OnInit {
       (data) => { // Success
         this.singleAdvancedPie = data; this.loading = false;
       },
-      (error) => { console.error(error);  this.loading = false; }
+      (error) => { console.error(error); this.loading = false; }
       );
 
     this.loading = true;
@@ -201,7 +224,16 @@ export class SentimentComponent implements OnInit {
       (data) => { // Success
         this.multiLineChart = data; this.loading = false;
       },
-      (error) => { console.error(error);  this.loading = false; }
+      (error) => { console.error(error); this.loading = false; }
+      );
+
+    this.loading = true;
+    this.backservice.getInfoGeneralTres()
+      .then(
+      (data) => { // Success
+        this.multiTonalidadInf = data; this.loading = false;
+      },
+      (error) => { console.error(error); this.loading = false; }
       );
 
     this.backservice.getFollowers(this.nameFollowers)
@@ -313,6 +345,7 @@ export class SentimentComponent implements OnInit {
 
 
   getCloud() {
+    this.loading = true;
     const div = document.getElementById('cloud');
     const img = document.getElementById('imgcloud');
     div.removeChild(img);
@@ -325,7 +358,9 @@ export class SentimentComponent implements OnInit {
         const nimg = document.createElement('img');
         nimg.setAttribute('id', 'imgcloud');
         nimg.setAttribute('src', uniqueUrl);
+        nimg.style.cssText = 'width:100%;height:100%;';
         div.appendChild(nimg);
+        this.loading = false;
       },
       (error) => { console.error(error); this.loading = false; }
       );

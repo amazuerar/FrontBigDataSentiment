@@ -139,6 +139,20 @@
         </div>
       </div>
 
+      
+      
+      <div class="row" style="margin-top: 20px; height:500px;">
+
+        <ngx-charts-bar-vertical-stacked  *ngIf="multiTonalidadInf && multiTonalidadInf.length > 0" [scheme]="colorSchemeTonalidadInf"
+          [results]="multiTonalidadInf" [gradient]="gradientTonalidadInf" [xAxis]="showXAxisTonalidadInf" [yAxis]="showYAxisTonalidadInf"
+          [legend]="showLegendTonalidadInf" [showXAxisLabel]="showXAxisLabelTonalidadInf" [showYAxisLabel]="showYAxisLabelTonalidadInf"
+          [xAxisLabel]="xAxisLabelTonalidadInf" [yAxisLabel]="yAxisLabelTonalidadInf">
+        </ngx-charts-bar-vertical-stacked>
+
+      </div>
+
+
+
     </div>
   </div>
 
@@ -537,7 +551,7 @@
             [gradient]="gradientTopicsUsedByUser" [scheme]="colorSchemeTopicsUsedByUse">
           </ngx-charts-advanced-pie-chart>
         </div>
-        
+
       </div>
 
     </div>

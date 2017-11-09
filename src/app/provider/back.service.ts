@@ -35,6 +35,12 @@ export class BackService {
       .toPromise()
   }
 
+  getInfoGeneralTres() {
+    return this.http.get('http://' + this.address + ':' + this.port + '/getInfoGeneralCuatro')
+      .map(res => res.json())
+      .toPromise()
+  }
+
   getFollowers(name) {
     return this.http.get('http://' + this.address + ':' + this.port + '/followers/' + name)
       .map(res => res.json())
