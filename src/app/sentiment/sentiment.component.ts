@@ -199,6 +199,11 @@ export class SentimentComponent implements OnInit {
     domain: ['#1D68FB', '#33C0FC', '#4AFFFE', '#AFFFFF', '#FFFC63', '#FDBD2D', '#5AA454', '#FC8A25', '#FA4F1E', '#FA141B', '#BA38D1']
   };
 
+  // GRAFICAS TAG CLOUD
+
+  tagCloudHashTags: any[];
+  tweetsbyHashInCloud: any[];
+
 
 
   constructor(private elementRef: ElementRef, private backservice: BackService, private fb: FormBuilder, private ngZone: NgZone) {
@@ -344,14 +349,17 @@ export class SentimentComponent implements OnInit {
 
 
 
-  getCloud() {
+  getCloud(name) {
     this.loading = true;
+    this.tagCloudHashTags = [];
     const div = document.getElementById('cloud');
     const img = document.getElementById('imgcloud');
     div.removeChild(img);
-    this.backservice.doCloud()
+    this.backservice.doCloudUser(name)
       .then(
       (data) => { // Success
+
+        this.tagCloudHashTags = [...data];
 
         const timeStamp = +new Date();
         const uniqueUrl = 'http://127.0.0.1:8082/images/foo.png' + '?tsp=' + timeStamp;
@@ -362,8 +370,66 @@ export class SentimentComponent implements OnInit {
         div.appendChild(nimg);
         this.loading = false;
       },
+      (error) => {
+        console.error(error);
+        this.loading = false;
+        const uniqueUrl = 'assets/nothing.png';
+        const nimg = document.createElement('img');
+        nimg.setAttribute('id', 'imgcloud');
+        nimg.setAttribute('src', uniqueUrl);
+        nimg.style.cssText = 'width:100%;height:100%;';
+        div.appendChild(nimg);
+      }
+      );
+  }
+
+  getCloudTopic(topic) {
+    this.loading = true;
+    this.tagCloudHashTags = [];
+    const div = document.getElementById('cloud');
+    const img = document.getElementById('imgcloud');
+    div.removeChild(img);
+    this.backservice.doCloudTopic(topic)
+      .then(
+      (data) => { // Success
+
+        this.tagCloudHashTags = [...data];
+
+        const timeStamp = +new Date();
+        const uniqueUrl = 'http://127.0.0.1:8082/images/foo.png' + '?tsp=' + timeStamp;
+        const nimg = document.createElement('img');
+        nimg.setAttribute('id', 'imgcloud');
+        nimg.setAttribute('src', uniqueUrl);
+        nimg.style.cssText = 'width:100%;height:100%;';
+        div.appendChild(nimg);
+        this.loading = false;
+      },
+      (error) => {
+        console.error(error);
+        this.loading = false;
+        const uniqueUrl = 'assets/nothing.png';
+        const nimg = document.createElement('img');
+        nimg.setAttribute('id', 'imgcloud');
+        nimg.setAttribute('src', uniqueUrl);
+        nimg.style.cssText = 'width:100%;height:100%;';
+        div.appendChild(nimg);
+      }
+      );
+  }
+
+  getTweetsByhash(hash) {
+    const newhash = hash.replace('#', '');
+
+    this.tweetsbyHashInCloud = [];
+    this.loading = true;
+    this.backservice.getTweetsbyHashInCloud(newhash)
+      .then(
+      (data) => { // Success
+        this.tweetsbyHashInCloud = [...data]; this.loading = false;
+      },
       (error) => { console.error(error); this.loading = false; }
       );
+
   }
 
 

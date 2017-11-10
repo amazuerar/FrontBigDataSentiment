@@ -139,11 +139,11 @@
         </div>
       </div>
 
-      
-      
+
+
       <div class="row" style="margin-top: 20px; height:500px;">
 
-        <ngx-charts-bar-vertical-stacked  *ngIf="multiTonalidadInf && multiTonalidadInf.length > 0" [scheme]="colorSchemeTonalidadInf"
+        <ngx-charts-bar-vertical-stacked *ngIf="multiTonalidadInf && multiTonalidadInf.length > 0" [scheme]="colorSchemeTonalidadInf"
           [results]="multiTonalidadInf" [gradient]="gradientTonalidadInf" [xAxis]="showXAxisTonalidadInf" [yAxis]="showYAxisTonalidadInf"
           [legend]="showLegendTonalidadInf" [showXAxisLabel]="showXAxisLabelTonalidadInf" [showYAxisLabel]="showYAxisLabelTonalidadInf"
           [xAxisLabel]="xAxisLabelTonalidadInf" [yAxisLabel]="yAxisLabelTonalidadInf">
@@ -561,15 +561,174 @@
 
   <!-- TAG CLOUD -->
   <div class="tab-pane fade" id="afinidad" role="tabpanel" aria-labelledby="afinidad-tab">
-    <div (click)="getCloud()"> hola</div>
-    <div id="cloud">
-      <img id="imgcloud">
+
+
+    <div class="container-fluid" style="margin-top: 15px;">
+      <div class="row" style="margin-top: 15px;">
+        <div class="col-sm">
+          <img src="assets\@A_OrdonezM.jpg" class="circle" (click)="getCloud('A_OrdonezM')">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@AlvaroUribeVel.jpeg" class="circle" (click)="getCloud('AlvaroUribeVel')">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@AndresPastrana_.jpg" class="circle" (click)="getCloud('AndresPastrana_')">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@BluRadioCo.jpg" class="circle" (click)="getCloud('BluRadioCo')">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@CaracolRadio.jpg" class="circle" (click)="getCloud('CaracolRadio')">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@CGurisattiNTN24.jpg" class="circle" (click)="getCloud('CGurisattiNTN24')">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@ClaudiaLopez.jpg" class="circle" (click)="getCloud('ClaudiaLopez')">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@DanielSamperO.jpg" class="circle" (click)="getCloud('DanielSamperO')">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@DeLaCalleHum.jpg" class="circle" (click)="getCloud('DeLaCalleHum')">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@elespectador.jpg" class="circle" (click)="getCloud('elespectador')">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@ELTIEMPO.jpg" class="circle" (click)="getCloud('ELTIEMPO')">
+        </div>
+      </div>
+      <div class="row" style="margin-top: 15px; ">
+        <div class="col-sm">
+          <img src="assets\@FARC_EPaz.jpg" class="circle" (click)="getCloud('FARC_EPaz')">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@German_Vargas.jpg" class="circle" (click)="getCloud('German_Vargas')">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@IvanDuque.jpg" class="circle" (click)="getCloud('IvanDuque')">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@JSantrich_FARC.jpg" class="circle" (click)="getCloud('JSantrich_FARC')">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@JuanManSantos.jpg" class="circle" (click)="getCloud('JuanManSantos')">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@mluciaramirez.jpg" class="circle" (click)="getCloud('mluciaramirez')">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@NoticiasCaracol.jpg" class="circle" (click)="getCloud('NoticiasCaracol')">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@NoticiasRCN.jpg" class="circle" (click)="getCloud('NoticiasRCN')">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@OIZuluaga.png" class="circle" (click)="getCloud('OIZuluaga')">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@petrogustavo.jpg" class="circle" (click)="getCloud('petrogustavo')">
+        </div>
+        <div class="col-sm">
+          <img src="assets\@TimoFARC.jpg" class="circle" (click)="getCloud('TimoFARC')">
+        </div>
+      </div>
+      <div class="row" style="margin-top: 15px; ">
+        <div class="col-sm">
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="getCloudTopic('Corrup')">Corrupción</button>
+        </div>
+        <div class="col-sm">
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="getCloudTopic('jep')">JEP</button>
+        </div>
+        <div class="col-sm">
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="getCloudTopic('farc')">FARC</button>
+        </div>
+        <div class="col-sm">
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="getCloudTopic('preside')">Presidencial</button>
+        </div>
+        <div class="col-sm">
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="getCloudTopic('paz')">Paz</button>
+        </div>
+        <div class="col-sm">
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="getCloudTopic('candida')">Candidaturas</button>
+        </div>
+        <div class="col-sm">
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="getCloudTopic('coca')">Coca</button>
+        </div>
+        <div class="col-sm">
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="getCloudTopic('eln')">ELN</button>
+        </div>
+        <div class="col-sm">
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="getCloudTopic('narco')">Narco</button>
+        </div>
+        <div class="col-sm">
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="getCloudTopic('mermelada')">Mermelada</button>
+        </div>
+        <div class="col-sm">
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="getCloudTopic('justicia')">Justicia</button>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top: 30px;">
+        <div class="col col-9">
+          <div id="cloud" style="width: 50%; margin: 0 auto;">
+            <img id="imgcloud" src='assets/nothing.png' style="width:100%;height:100%;">
+          </div>
+        </div>
+        <div class="col col-3">
+          <div style="height: 450px; overflow: auto">
+            <table *ngIf="tagCloudHashTags && tagCloudHashTags.length > 0" class="table table-striped">
+              <thead>
+                <tr>
+                  <th class="col col-9">Hashtags</th>
+                  <th class="col col-3">Tweets</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let hash of tagCloudHashTags;">
+                  <td class="col col-9">{{hash._id}}</td>
+                  <td class="col col-3">
+                    <button type="button" class="btn btn-primary" (click)="getTweetsByhash(hash._id)">Dar Tweets</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top: 30px;" *ngIf="tweetsbyHashInCloud && tweetsbyHashInCloud.length > 0">
+        <div class="col col-lg-12">
+          <div style="height: 400px; overflow: auto">
+            <table class="table table-striped" >
+              <thead>
+                <tr>
+                  <th class="col col-9">Tweets</th>
+                  <th class="col col-3">Polaridad</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let tweet of tweetsbyHashInCloud;">
+                  <td class="col col-3">{{tweet.text}}</td>
+                  <td class="col col-1">
+                    <img [src]="url(tweet.sentiment)" style="width: 60px;height: auto;">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <div class="tab-pane fade" id="tweets" role="tabpanel" aria-labelledby="tweets-tab">Aqui van los tweets</div>
+    <div class="tab-pane fade" id="mapa" role="tabpanel" aria-labelledby="tweets-tab">Aqui va el mapa
+
+
+
     </div>
   </div>
-  <div class="tab-pane fade" id="tweets" role="tabpanel" aria-labelledby="tweets-tab">Aqui van los tweets</div>
-  <div class="tab-pane fade" id="mapa" role="tabpanel" aria-labelledby="tweets-tab">Aqui va el mapa
-
-
-
-  </div>
-</div>

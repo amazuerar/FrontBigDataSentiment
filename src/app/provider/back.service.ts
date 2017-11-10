@@ -102,8 +102,20 @@ export class BackService {
       .toPromise()
   }
 
-  doCloud() {
-    return this.http.get('http://' + this.address + ':' + this.port + '/cloud')
+  doCloudUser(user) {
+    return this.http.get('http://' + this.address + ':' + this.port + '/cloudUser/' + user)
+      .map(res => res.json())
+      .toPromise()
+  }
+
+  doCloudTopic(topic) {
+    return this.http.get('http://' + this.address + ':' + this.port + '/cloudTopic/' + topic)
+      .map(res => res.json())
+      .toPromise()
+  }
+
+    getTweetsbyHashInCloud(hash) {
+    return this.http.get('http://' + this.address + ':' + this.port + '/getTweetsByHastag/' + hash)
       .map(res => res.json())
       .toPromise()
   }
