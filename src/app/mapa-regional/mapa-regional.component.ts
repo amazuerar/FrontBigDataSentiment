@@ -13,14 +13,18 @@ declare var google;
 })
 export class MapaRegionalComponent implements OnInit {
 
-  lat = 4.5981;
-  lng = -74.0758;
+  ciudad = '';
+  infoTweets: any[];
+  public loading = false;
+
+  lat = 5.5981;
+  lng = -74.357557;
 
   latBog = 4.5981;
   lngBog = -74.0758;
 
-  latClo = 3.359889;
-  lngClo = -76.638565;
+  latClo = 3.451647;
+  lngClo = -76.531985;
 
   latBqa = 11.0041072;
   lngBqa = -74.806981;
@@ -28,9 +32,30 @@ export class MapaRegionalComponent implements OnInit {
   latMde = 6.27053;
   lngMde = -75.572119;
 
+  latCtg = 10.391049;
+  lngCtg = -75.479426;
+
+  latPoy = 2.444814;
+  lngPoy = -76.614739;
+
+  latPas = 1.205884;
+  lngPas = -77.285787;
+
+  latNei = 2.934484;
+  lngNei = -75.280900;
+
+  latBuc = 7.119349;
+  lngBuc = -73.122742;
+
+  latPer = 4.808717;
+  lngPer = -75.690601;
+
+  latTun = 5.544642;
+  lngTun = -73.357557;
 
 
-  zoom = 5;
+
+  zoom = 6;
 
   markers;
 
@@ -55,7 +80,25 @@ export class MapaRegionalComponent implements OnInit {
   }
 
   clicZone(zone) {
-    console.log("clikc from " + zone);
+    console.log('clikc from ' + zone);
+    this.ciudad = zone;
+  }
+
+  selectTopic(tema) {
+    if (this.ciudad === '') {
+      alert('Debe seleccionar una ciudad');
+    } else {
+      this.loading = true;
+      const ciudad = this.ciudad;
+      this.backservice.getUsersByCityandByTopic(ciudad, tema)
+        .then(
+        (data) => { // Success
+          this.infoTweets = [...data];
+          this.loading = false;
+        },
+        (error) => { console.error(error); this.loading = false; }
+        );
+    }
   }
 
   latitude(url) {

@@ -1,3 +1,4 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
 <div class="jumbotron jumbotron-fluid" style="padding-top: 15px; padding-bottom: 15px; margin-bottom: 10px">
   <div class="container">
     <div class="row">
@@ -20,69 +21,166 @@
   <!-- the component as the initial center of the map: -->
   <div class="row">
     <div class="col col-6">
-      <agm-map [latitude]="latBog" [longitude]="lngBog" [zoom]="zoom">
-        <agm-circle [latitude]="lat" [longitude]="lng" 
-          [radius]="70000"
+      <div>Ciudad seleccionada: {{ciudad}}</div>
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+        <agm-circle [latitude]="latBog" [longitude]="lngBog" 
+          [radius]="50000"
           [fillColor]="'red'"
           [circleDraggable]="false"
           [editable]="false" 
           [clickable]="true"
-          (circleClick)="clicZone('bog')">
+          (circleClick)="clicZone('Bogota')">
       </agm-circle>
 
       <agm-circle [latitude]="latClo" [longitude]="lngClo" 
-          [radius]="70000"
+          [radius]="50000"
           [fillColor]="'blue'"
           [circleDraggable]="false"
           [editable]="false"
           [clickable]="true"
-          (circleClick)="clicZone('clo')">
+          (circleClick)="clicZone('Cali')">
       </agm-circle>
 
       <agm-circle [latitude]="latMde" [longitude]="lngMde" 
-          [radius]="70000"
+          [radius]="50000"
           [fillColor]="'green'"
           [circleDraggable]="false"
           [editable]="false"
           [clickable]="true"
-          (circleClick)="clicZone('mde')">
+          (circleClick)="clicZone('Medellin')">
       </agm-circle>
 
       <agm-circle [latitude]="latBqa" [longitude]="lngBqa" 
-          [radius]="70000"
+          [radius]="50000"
           [fillColor]="'yellow'"
           [circleDraggable]="false"
           [editable]="false"
           [clickable]="true"
-          (circleClick)="clicZone('bqa')">
+          (circleClick)="clicZone('Barranquilla')">
+      </agm-circle>
+
+      <agm-circle [latitude]="latCtg" [longitude]="lngCtg" 
+          [radius]="50000"
+          [fillColor]="'cyan'"
+          [circleDraggable]="false"
+          [editable]="false"
+          [clickable]="true"
+          (circleClick)="clicZone('Cartagena')">
+      </agm-circle>
+
+      <agm-circle [latitude]="latPoy" [longitude]="lngPoy" 
+          [radius]="50000"
+          [fillColor]="'grey'"
+          [circleDraggable]="false"
+          [editable]="false"
+          [clickable]="true"
+          (circleClick)="clicZone('Popayan')">
+      </agm-circle>
+
+      <agm-circle [latitude]="latPas" [longitude]="lngPas" 
+          [radius]="50000"
+          [fillColor]="'cyan'"
+          [circleDraggable]="false"
+          [editable]="false"
+          [clickable]="true"
+          (circleClick)="clicZone('Pasto')">
+      </agm-circle>
+
+      <agm-circle [latitude]="latNei" [longitude]="lngNei" 
+          [radius]="50000"
+          [fillColor]="'purple'"
+          [circleDraggable]="false"
+          [editable]="false"
+          [clickable]="true"
+          (circleClick)="clicZone('Neiva')">
+      </agm-circle>
+
+      <agm-circle [latitude]="latBuc" [longitude]="lngBuc" 
+          [radius]="50000"
+          [fillColor]="'brown'"
+          [circleDraggable]="false"
+          [editable]="false"
+          [clickable]="true"
+          (circleClick)="clicZone('Bucaramanga')">
+      </agm-circle>
+
+      <agm-circle [latitude]="latPer" [longitude]="lngPer" 
+          [radius]="50000"
+          [fillColor]="'yellow'"
+          [circleDraggable]="false"
+          [editable]="false"
+          [clickable]="true"
+          (circleClick)="clicZone('Pereira')">
+      </agm-circle>
+
+       <agm-circle [latitude]="latTun" [longitude]="lngTun" 
+          [radius]="50000"
+          [fillColor]="'yellow'"
+          [circleDraggable]="false"
+          [editable]="false"
+          [clickable]="true"
+          (circleClick)="clicZone('Tunja')">
       </agm-circle>
       </agm-map>
     </div>
     <div class="col col-6" style="height: 550px; overflow: auto">
-      <table class="table table-striped">
+       <div class="row" style="margin-top: 15px; ">
+        <div class="col col-3" style="margin-bottom: 10px;">
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="selectTopic('Corrup')">Corrupción</button>
+        </div>
+        <div class="col col-3" style="margin-bottom: 10px;">
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="selectTopic('jep')">JEP</button>
+        </div>
+        <div class="col col-3" style="margin-bottom: 10px;">
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="selectTopic('farc')">FARC</button>
+        </div>
+        <div class="col col-3" style="margin-bottom: 10px;">
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="selectTopic('preside')">Presidencial</button>
+        </div>
+        <div class="col col-3" style="margin-bottom: 10px;">
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="selectTopic('paz')">Paz</button>
+        </div>
+        <div class="col col-3" style="margin-bottom: 10px;">
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="selectTopic('candida')">Candidaturas</button>
+        </div>
+        <div class="col col-3" style="margin-bottom: 10px;">
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="selectTopic('coca')">Coca</button>
+        </div>
+        <div class="col col-3" style="margin-bottom: 10px;">
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="selectTopic('eln')">ELN</button>
+        </div>
+        <div class="col col-3">
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="selectTopic('narco')">Narco</button>
+        </div>
+        <div class="col col-3">
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="selectTopic('mermelada')">Mermelada</button>
+        </div>
+        <div class="col col-3">
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="selectTopic('justicia')">Justicia</button>
+        </div>
+      </div>
+      <table class="table table-striped" style="margin-top: 10px;">
         <thead>
           <tr>
             <th class="col-xs-6">Texto</th>
-            <th class="col-xs-2">Hashtag</th>
+            <th class="col-xs-2">Usuario</th>
             <th class="col-xs-2">Menciones</th>
             <th class="col-xs-2">Polaridad</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let m of markers;">
-            <td class="col-xs-3">{{m.text}}</td>
+          <tr *ngFor="let tweet of infoTweets;">
+            <td class="col-xs-3">{{tweet.text}}</td>
             <td class="col-xs-3">
-              <ul>
-                <li *ngFor="let hashtag of m.entities_hashtags;">{{hashtag}}</li>
-              </ul>
+              {{tweet.screen_name}}
             </td>
             <td class="col-xs-6">
               <ul>
-                <li *ngFor="let mencion of m.entities_mentions;">{{mencion}}</li>
+                <li *ngFor="let mencion of tweet.entities_mentions;">{{mencion}}</li>
               </ul>
             </td>
             <td class="col-xs-3">
-              <img [src]="url(m.sentiment)" style="width: 60px;height: auto;">
+              <img [src]="url(tweet.sentiment)" style="width: 60px;height: auto;">
             </td>
           </tr>
         </tbody>

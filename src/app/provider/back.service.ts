@@ -114,8 +114,20 @@ export class BackService {
       .toPromise()
   }
 
-    getTweetsbyHashInCloud(hash) {
+  getTweetsbyHashInCloud(hash) {
     return this.http.get('http://' + this.address + ':' + this.port + '/getTweetsByHastag/' + hash)
+      .map(res => res.json())
+      .toPromise()
+  }
+
+    getUsersByCityandByTopic(ciudad, tema) {
+    return this.http.get('http://' + this.address + ':' + this.port + '/getUsersByCityandByTopic/' + ciudad + '/' + tema)
+      .map(res => res.json())
+      .toPromise()
+  }
+
+    getUserNature(name) {
+    return this.http.get('http://' + this.address + ':' + this.port + '/getUserNature/' + name)
       .map(res => res.json())
       .toPromise()
   }

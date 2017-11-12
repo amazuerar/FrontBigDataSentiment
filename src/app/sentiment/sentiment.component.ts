@@ -5,6 +5,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import * as D3 from 'd3';
 import { BackService } from '../provider/back.service';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-sentiment',
@@ -14,6 +15,8 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 export class SentimentComponent implements OnInit {
 
   public loading = false;
+  userNatureName = '';
+  userNature = '';
 
   personajes = [
     'CGurisattiNTN24',
@@ -46,7 +49,7 @@ export class SentimentComponent implements OnInit {
 
   viewAdvancedPie: number[] = [800, 300];
   colorSchemeAdvancedPie = {
-    domain: ['#C7B42C', '#5AA454', '#A10A28']
+    domain: ['#0000FF', '#C7B42C', '#5AA454', '#A10A28']
   };
   singleAdvancedPie: any[];
   tooltipAdvancedPie = true;
@@ -86,7 +89,7 @@ export class SentimentComponent implements OnInit {
   yAxisLabelTonalidadInf = 'Polaridad con la que hablan los twitteros';
 
   colorSchemeTonalidadInf = {
-    domain: ['#C7B42C', '#5AA454', '#A10A28']
+    domain: ['#0000FF', '#5AA454', '#A10A28', '#C7B42C']
   };
 
 
@@ -288,6 +291,10 @@ export class SentimentComponent implements OnInit {
   onImageGetTweetsClick(name) {
     this.nameMatone = name;
     this.dataGauge = [];
+    this.userNature = '';
+    this.userNatureName = '';
+    this.tweetsByAccount = [];
+    this.replayTweetsByID = [];
     this.loading = true;
     this.backservice.getLastTweetsByAccount(name)
       .then(
@@ -301,6 +308,9 @@ export class SentimentComponent implements OnInit {
   }
 
   onClickButtonLastTweets(id) {
+    this.replayTweetsByID = [];
+    this.userNature = '';
+    this.userNatureName = '';
     this.loading = true;
     this.backservice.getLastReplayByTweetID(id)
       .then(
@@ -352,6 +362,7 @@ export class SentimentComponent implements OnInit {
   getCloud(name) {
     this.loading = true;
     this.tagCloudHashTags = [];
+    this.tweetsbyHashInCloud = [];
     const div = document.getElementById('cloud');
     const img = document.getElementById('imgcloud');
     div.removeChild(img);
@@ -386,6 +397,7 @@ export class SentimentComponent implements OnInit {
   getCloudTopic(topic) {
     this.loading = true;
     this.tagCloudHashTags = [];
+    this.tweetsbyHashInCloud = [];
     const div = document.getElementById('cloud');
     const img = document.getElementById('imgcloud');
     div.removeChild(img);
@@ -418,7 +430,9 @@ export class SentimentComponent implements OnInit {
   }
 
   getTweetsByhash(hash) {
-    const newhash = hash.replace('#', '');
+    this.tweetsbyHashInCloud = [];
+    const splitted = hash.split(' ', 1);
+    const newhash = splitted[0].replace('#', '');
 
     this.tweetsbyHashInCloud = [];
     this.loading = true;
@@ -440,6 +454,24 @@ export class SentimentComponent implements OnInit {
   twitterUrl(name) {
     window.open('https://twitter.com/' + name + '?lang=es');
   }
+
+  getNature(name) {
+    this.loading = false;
+    this.userNatureName = '';
+    this.userNatureName = name;
+    this.backservice.getUserNature(name)
+      .then(
+      (data) => { // Success
+        this.userNature = data[0].user_category; this.loading = false;
+      },
+      (error) => { console.error(error); this.loading = false; }
+      );
+  }
+
+  natureImg() {
+    return 'assets/' + this.userNature + '.png';
+  }
+
 
 
 
