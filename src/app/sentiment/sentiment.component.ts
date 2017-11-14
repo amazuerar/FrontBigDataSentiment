@@ -207,7 +207,8 @@ export class SentimentComponent implements OnInit {
   tagCloudHashTags: any[];
   tweetsbyHashInCloud: any[];
 
-
+  // ENGLISH TWEETS TABLE
+  englishTeets: any[];
 
   constructor(private elementRef: ElementRef, private backservice: BackService, private fb: FormBuilder, private ngZone: NgZone) {
   }
@@ -267,6 +268,15 @@ export class SentimentComponent implements OnInit {
         this.singleTopicsAll = [...data];
       },
       (error) => { console.error(error); }
+      );
+
+    this.loading = true;
+    this.backservice.getEnglishTweets()
+      .then(
+      (data) => { // Success
+        this.englishTeets = [...data]; this.loading = false;
+      },
+      (error) => { console.error(error); this.loading = false; }
       );
 
 
@@ -373,7 +383,7 @@ export class SentimentComponent implements OnInit {
         this.tagCloudHashTags = [...data];
 
         const timeStamp = +new Date();
-        const uniqueUrl = 'http://127.0.0.1:8082/images/foo.png' + '?tsp=' + timeStamp;
+        const uniqueUrl = 'http://172.24.100.104:8082/images/foo.png' + '?tsp=' + timeStamp;
         const nimg = document.createElement('img');
         nimg.setAttribute('id', 'imgcloud');
         nimg.setAttribute('src', uniqueUrl);
@@ -408,7 +418,7 @@ export class SentimentComponent implements OnInit {
         this.tagCloudHashTags = [...data];
 
         const timeStamp = +new Date();
-        const uniqueUrl = 'http://127.0.0.1:8082/images/foo.png' + '?tsp=' + timeStamp;
+        const uniqueUrl = 'http://172.24.100.104:8082/images/foo.png' + '?tsp=' + timeStamp;
         const nimg = document.createElement('img');
         nimg.setAttribute('id', 'imgcloud');
         nimg.setAttribute('src', uniqueUrl);
@@ -470,6 +480,11 @@ export class SentimentComponent implements OnInit {
 
   natureImg() {
     return 'assets/' + this.userNature + '.png';
+  }
+
+  englishUrl(rate)
+  {
+    return 'assets/' + rate + '.png';
   }
 
 

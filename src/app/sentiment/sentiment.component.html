@@ -43,7 +43,8 @@
   <!--
   <li class="nav-item">
     <a class="nav-link" id="contact-tab" data-toggle="tab" href="#mapa" role="tab" aria-controls="contact" aria-selected="false">Mapa</a>
-  </li> -->
+  </li>
+  -->
 </ul>
 
 <div class="tab-content" id="myTabContent">
@@ -732,12 +733,47 @@
 
     </div>
 
+  </div>
 
 
-    <div class="tab-pane fade" id="tweets" role="tabpanel" aria-labelledby="tweets-tab">Aqui van los tweets</div>
-    <div class="tab-pane fade" id="mapa" role="tabpanel" aria-labelledby="tweets-tab">Aqui va el mapa
-
-
-
+<!-- ENGLISH TWEETS -->
+  <div class="tab-pane fade" id="tweets" role="tabpanel" aria-labelledby="tweets-tab">
+    <div class="container-fluid" style="margin-top: 15px;">
+      <div style="height: 900px; overflow: auto">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="col">Contenido</th>
+              <th class="col">Rating 1</th>
+              <th class="col">Rating 2</th>
+              <th class="col">Rating 3</th>
+              <th class="col">Nuestro modelo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tweet of englishTeets;">
+              <td class="col">{{tweet.content}}</td>
+              <td class="col">
+                <img [src]="englishUrl(tweet.rating_1)">
+              </td>
+              <td class="col">
+                <img [src]="englishUrl(tweet.rating_2)">
+              </td>
+              <td class="col">
+                <img [src]="englishUrl(tweet.rating_3)">
+              </td>
+              <td class="col">
+                <img [src]="englishUrl(tweet.rating_9)">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
+
+  <div class="tab-pane fade" id="mapa" role="tabpanel" aria-labelledby="tweets-tab">Aqui va el mapa
+
+
+  </div>
+</div>

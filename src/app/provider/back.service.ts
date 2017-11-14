@@ -120,14 +120,20 @@ export class BackService {
       .toPromise()
   }
 
-    getUsersByCityandByTopic(ciudad, tema) {
+  getUsersByCityandByTopic(ciudad, tema) {
     return this.http.get('http://' + this.address + ':' + this.port + '/getUsersByCityandByTopic/' + ciudad + '/' + tema)
       .map(res => res.json())
       .toPromise()
   }
 
-    getUserNature(name) {
+  getUserNature(name) {
     return this.http.get('http://' + this.address + ':' + this.port + '/getUserNature/' + name)
+      .map(res => res.json())
+      .toPromise()
+  }
+
+  getEnglishTweets() {
+    return this.http.get('http://' + this.address + ':' + this.port + '/getEnglishTweets')
       .map(res => res.json())
       .toPromise()
   }
